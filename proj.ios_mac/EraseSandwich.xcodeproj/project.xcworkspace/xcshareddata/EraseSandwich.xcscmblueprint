@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "64194AF33BFC19A8E0F0DA88F2CE4C9009273E92",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "64194AF33BFC19A8E0F0DA88F2CE4C9009273E92" : 0,
+    "595D9540FD58AA8B1ADCC31A7050F85C854F42EC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "934D8CB5-9106-4F9D-ADAD-673614308A22",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "64194AF33BFC19A8E0F0DA88F2CE4C9009273E92" : "EraseSandwich\/",
+    "595D9540FD58AA8B1ADCC31A7050F85C854F42EC" : "care_of_road\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EraseSandwich",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "proj.ios_mac\/EraseSandwich.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/team-nagohiyo\/care_of_road.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "595D9540FD58AA8B1ADCC31A7050F85C854F42EC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/team-nagohiyo\/EraseSandwich.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "64194AF33BFC19A8E0F0DA88F2CE4C9009273E92"
+    }
+  ]
+}

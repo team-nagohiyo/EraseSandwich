@@ -14,16 +14,8 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
-		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -59,6 +51,43 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		5756AA761D4C18CF008BA7A0 /* GroupLogoScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA681D4C18CF008BA7A0 /* GroupLogoScene.cpp */; };
+		5756AA771D4C18CF008BA7A0 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA6A1D4C18CF008BA7A0 /* GameOverScene.cpp */; };
+		5756AA781D4C18CF008BA7A0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA6C1D4C18CF008BA7A0 /* GameScene.cpp */; };
+		5756AA7A1D4C18CF008BA7A0 /* PowerUpScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA701D4C18CF008BA7A0 /* PowerUpScene.cpp */; };
+		5756AA7B1D4C18CF008BA7A0 /* RankingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA721D4C18CF008BA7A0 /* RankingScene.cpp */; };
+		5756AA7C1D4C18CF008BA7A0 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA741D4C18CF008BA7A0 /* TitleScene.cpp */; };
+		5756AA861D4C19B1008BA7A0 /* BulletObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA7E1D4C19B1008BA7A0 /* BulletObject.cpp */; };
+		5756AA871D4C19B1008BA7A0 /* EnemyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA801D4C19B1008BA7A0 /* EnemyObject.cpp */; };
+		5756AA881D4C19B1008BA7A0 /* HitObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA821D4C19B1008BA7A0 /* HitObject.cpp */; };
+		5756AA891D4C19B1008BA7A0 /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA841D4C19B1008BA7A0 /* PlayerObject.cpp */; };
+		5756AA8E1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */; };
+		5756AA8F1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */; };
+		5756AA9A1D4C1B56008BA7A0 /* EnemyGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA921D4C1B56008BA7A0 /* EnemyGenerator.cpp */; };
+		5756AA9B1D4C1B56008BA7A0 /* GameData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA941D4C1B56008BA7A0 /* GameData.cpp */; };
+		5756AA9C1D4C1B56008BA7A0 /* GameLevelPlanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA961D4C1B56008BA7A0 /* GameLevelPlanner.cpp */; };
+		5756AA9D1D4C1B56008BA7A0 /* GameMediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA981D4C1B56008BA7A0 /* GameMediator.cpp */; };
+		5756AAA91D4C1CA9008BA7A0 /* UnityAdsWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5756AAA41D4C1CA9008BA7A0 /* UnityAdsWrapper.mm */; };
+		5756AAF01D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */; };
+		5756AAF11D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */; };
+		5756AAF51D4C2710008BA7A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAF41D4C2710008BA7A0 /* SystemConfiguration.framework */; };
+		5756AAF71D4C271E008BA7A0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAF61D4C271E008BA7A0 /* CoreTelephony.framework */; };
+		5756AAF91D4C2730008BA7A0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAF81D4C2730008BA7A0 /* AdSupport.framework */; };
+		5756AAFB1D4C2741008BA7A0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAFA1D4C2741008BA7A0 /* CoreMedia.framework */; };
+		5756AAFD1D4C27AD008BA7A0 /* UnityAds.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAFC1D4C27AD008BA7A0 /* UnityAds.bundle */; };
+		5756AAFF1D4C27C9008BA7A0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAFE1D4C27C9008BA7A0 /* StoreKit.framework */; };
+		5756AB241D4C3D88008BA7A0 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB231D4C3D88008BA7A0 /* game */; };
+		5756AB251D4C3D88008BA7A0 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB231D4C3D88008BA7A0 /* game */; };
+		5756AB271D4C3DE7008BA7A0 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB261D4C3DE7008BA7A0 /* str */; };
+		5756AB281D4C3DE7008BA7A0 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB261D4C3DE7008BA7A0 /* str */; };
+		5756AB2A1D4C3DFE008BA7A0 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB291D4C3DFE008BA7A0 /* icon */; };
+		5756AB2B1D4C3DFE008BA7A0 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB291D4C3DFE008BA7A0 /* icon */; };
+		5756AB2D1D4C3E08008BA7A0 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB2C1D4C3E08008BA7A0 /* sound */; };
+		5756AB2E1D4C3E08008BA7A0 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 5756AB2C1D4C3E08008BA7A0 /* sound */; };
+		5756AB321D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AB301D4CA405008BA7A0 /* BattleScreenLayer.cpp */; };
+		5756AB331D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AB301D4CA405008BA7A0 /* BattleScreenLayer.cpp */; };
+		5756AB3A1D4CB2E9008BA7A0 /* SquarePieceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AB381D4CB2E9008BA7A0 /* SquarePieceLayer.cpp */; };
+		5756AB3B1D4CB2E9008BA7A0 /* SquarePieceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AB381D4CB2E9008BA7A0 /* SquarePieceLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -106,14 +135,9 @@
 		1D6058910D05DD3D006BFB54 /* EraseSandwich iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EraseSandwich iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "res"; sourceTree = "<group>"; };
-		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -149,6 +173,55 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		5756AA681D4C18CF008BA7A0 /* GroupLogoScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupLogoScene.cpp; sourceTree = "<group>"; };
+		5756AA691D4C18CF008BA7A0 /* GroupLogoScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupLogoScene.h; sourceTree = "<group>"; };
+		5756AA6A1D4C18CF008BA7A0 /* GameOverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScene.cpp; sourceTree = "<group>"; };
+		5756AA6B1D4C18CF008BA7A0 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		5756AA6C1D4C18CF008BA7A0 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		5756AA6D1D4C18CF008BA7A0 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		5756AA701D4C18CF008BA7A0 /* PowerUpScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerUpScene.cpp; sourceTree = "<group>"; };
+		5756AA711D4C18CF008BA7A0 /* PowerUpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpScene.h; sourceTree = "<group>"; };
+		5756AA721D4C18CF008BA7A0 /* RankingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RankingScene.cpp; sourceTree = "<group>"; };
+		5756AA731D4C18CF008BA7A0 /* RankingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingScene.h; sourceTree = "<group>"; };
+		5756AA741D4C18CF008BA7A0 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
+		5756AA751D4C18CF008BA7A0 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
+		5756AA7E1D4C19B1008BA7A0 /* BulletObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BulletObject.cpp; sourceTree = "<group>"; };
+		5756AA7F1D4C19B1008BA7A0 /* BulletObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletObject.h; sourceTree = "<group>"; };
+		5756AA801D4C19B1008BA7A0 /* EnemyObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyObject.cpp; sourceTree = "<group>"; };
+		5756AA811D4C19B1008BA7A0 /* EnemyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyObject.h; sourceTree = "<group>"; };
+		5756AA821D4C19B1008BA7A0 /* HitObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HitObject.cpp; sourceTree = "<group>"; };
+		5756AA831D4C19B1008BA7A0 /* HitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitObject.h; sourceTree = "<group>"; };
+		5756AA841D4C19B1008BA7A0 /* PlayerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerObject.cpp; sourceTree = "<group>"; };
+		5756AA851D4C19B1008BA7A0 /* PlayerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerObject.h; sourceTree = "<group>"; };
+		5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RollBackgroundLayer.cpp; sourceTree = "<group>"; };
+		5756AA8B1D4C1ADB008BA7A0 /* RollBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollBackgroundLayer.h; sourceTree = "<group>"; };
+		5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PuzzleControllLayer.cpp; sourceTree = "<group>"; };
+		5756AA8D1D4C1ADB008BA7A0 /* PuzzleControllLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleControllLayer.h; sourceTree = "<group>"; };
+		5756AA921D4C1B56008BA7A0 /* EnemyGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyGenerator.cpp; sourceTree = "<group>"; };
+		5756AA931D4C1B56008BA7A0 /* EnemyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyGenerator.h; sourceTree = "<group>"; };
+		5756AA941D4C1B56008BA7A0 /* GameData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameData.cpp; sourceTree = "<group>"; };
+		5756AA951D4C1B56008BA7A0 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		5756AA961D4C1B56008BA7A0 /* GameLevelPlanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLevelPlanner.cpp; sourceTree = "<group>"; };
+		5756AA971D4C1B56008BA7A0 /* GameLevelPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevelPlanner.h; sourceTree = "<group>"; };
+		5756AA981D4C1B56008BA7A0 /* GameMediator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMediator.cpp; sourceTree = "<group>"; };
+		5756AA991D4C1B56008BA7A0 /* GameMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMediator.h; sourceTree = "<group>"; };
+		5756AAA41D4C1CA9008BA7A0 /* UnityAdsWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnityAdsWrapper.mm; sourceTree = "<group>"; };
+		5756AAA61D4C1CA9008BA7A0 /* UnityAdsWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityAdsWrapper.h; sourceTree = "<group>"; };
+		5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAds.framework; path = "../../care_of_road/unity-ads-sdk/UnityAds.framework"; sourceTree = "<group>"; };
+		5756AAF41D4C2710008BA7A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		5756AAF61D4C271E008BA7A0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		5756AAF81D4C2730008BA7A0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		5756AAFA1D4C2741008BA7A0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		5756AAFC1D4C27AD008BA7A0 /* UnityAds.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UnityAds.bundle; path = "../unity-ads-sdk/UnityAds.bundle"; sourceTree = "<group>"; };
+		5756AAFE1D4C27C9008BA7A0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		5756AB231D4C3D88008BA7A0 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
+		5756AB261D4C3DE7008BA7A0 /* str */ = {isa = PBXFileReference; lastKnownFileType = folder; path = str; sourceTree = "<group>"; };
+		5756AB291D4C3DFE008BA7A0 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
+		5756AB2C1D4C3E08008BA7A0 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
+		5756AB301D4CA405008BA7A0 /* BattleScreenLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleScreenLayer.cpp; sourceTree = "<group>"; };
+		5756AB311D4CA405008BA7A0 /* BattleScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleScreenLayer.h; sourceTree = "<group>"; };
+		5756AB381D4CB2E9008BA7A0 /* SquarePieceLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SquarePieceLayer.cpp; sourceTree = "<group>"; };
+		5756AB391D4CB2E9008BA7A0 /* SquarePieceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquarePieceLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -163,6 +236,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5756AAFF1D4C27C9008BA7A0 /* StoreKit.framework in Frameworks */,
+				5756AAFD1D4C27AD008BA7A0 /* UnityAds.bundle in Frameworks */,
+				5756AAFB1D4C2741008BA7A0 /* CoreMedia.framework in Frameworks */,
+				5756AAF91D4C2730008BA7A0 /* AdSupport.framework in Frameworks */,
+				5756AAF71D4C271E008BA7A0 /* CoreTelephony.framework in Frameworks */,
+				5756AAF51D4C2710008BA7A0 /* SystemConfiguration.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -174,6 +253,7 @@
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
+				5756AAF01D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +272,7 @@
 				5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */,
 				5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */,
 				5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */,
+				5756AAF11D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +315,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */,
+				5756AA9E1D4C1CA9008BA7A0 /* native */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
@@ -248,6 +331,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5756AAFE1D4C27C9008BA7A0 /* StoreKit.framework */,
+				5756AAFC1D4C27AD008BA7A0 /* UnityAds.bundle */,
+				5756AAFA1D4C2741008BA7A0 /* CoreMedia.framework */,
+				5756AAF81D4C2730008BA7A0 /* AdSupport.framework */,
+				5756AAF61D4C271E008BA7A0 /* CoreTelephony.framework */,
+				5756AAF41D4C2710008BA7A0 /* SystemConfiguration.framework */,
 				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
 				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
@@ -270,11 +359,12 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5756AB2C1D4C3E08008BA7A0 /* sound */,
+				5756AB291D4C3DFE008BA7A0 /* icon */,
+				5756AB261D4C3DE7008BA7A0 /* str */,
+				5756AB231D4C3D88008BA7A0 /* game */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
-				46880B7619C43A67006E1F66 /* CloseNormal.png */,
-				46880B7719C43A67006E1F66 /* CloseSelected.png */,
-				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -283,10 +373,18 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5756AA901D4C1B26008BA7A0 /* Manager */,
+				5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */,
+				5756AA8B1D4C1ADB008BA7A0 /* RollBackgroundLayer.h */,
+				5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */,
+				5756AA8D1D4C1ADB008BA7A0 /* PuzzleControllLayer.h */,
+				5756AA7D1D4C198B008BA7A0 /* Object */,
+				5756AA671D4C18A6008BA7A0 /* scene */,
+				5722A2161D410D1D000C2615 /* puzzle */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				5756AB301D4CA405008BA7A0 /* BattleScreenLayer.cpp */,
+				5756AB311D4CA405008BA7A0 /* BattleScreenLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -339,6 +437,91 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		5722A2161D410D1D000C2615 /* puzzle */ = {
+			isa = PBXGroup;
+			children = (
+				5756AB381D4CB2E9008BA7A0 /* SquarePieceLayer.cpp */,
+				5756AB391D4CB2E9008BA7A0 /* SquarePieceLayer.h */,
+			);
+			path = puzzle;
+			sourceTree = "<group>";
+		};
+		5756AA671D4C18A6008BA7A0 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				5756AA681D4C18CF008BA7A0 /* GroupLogoScene.cpp */,
+				5756AA691D4C18CF008BA7A0 /* GroupLogoScene.h */,
+				5756AA6A1D4C18CF008BA7A0 /* GameOverScene.cpp */,
+				5756AA6B1D4C18CF008BA7A0 /* GameOverScene.h */,
+				5756AA6C1D4C18CF008BA7A0 /* GameScene.cpp */,
+				5756AA6D1D4C18CF008BA7A0 /* GameScene.h */,
+				5756AA701D4C18CF008BA7A0 /* PowerUpScene.cpp */,
+				5756AA711D4C18CF008BA7A0 /* PowerUpScene.h */,
+				5756AA721D4C18CF008BA7A0 /* RankingScene.cpp */,
+				5756AA731D4C18CF008BA7A0 /* RankingScene.h */,
+				5756AA741D4C18CF008BA7A0 /* TitleScene.cpp */,
+				5756AA751D4C18CF008BA7A0 /* TitleScene.h */,
+			);
+			name = scene;
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		5756AA7D1D4C198B008BA7A0 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				5756AA7E1D4C19B1008BA7A0 /* BulletObject.cpp */,
+				5756AA7F1D4C19B1008BA7A0 /* BulletObject.h */,
+				5756AA801D4C19B1008BA7A0 /* EnemyObject.cpp */,
+				5756AA811D4C19B1008BA7A0 /* EnemyObject.h */,
+				5756AA821D4C19B1008BA7A0 /* HitObject.cpp */,
+				5756AA831D4C19B1008BA7A0 /* HitObject.h */,
+				5756AA841D4C19B1008BA7A0 /* PlayerObject.cpp */,
+				5756AA851D4C19B1008BA7A0 /* PlayerObject.h */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		5756AA901D4C1B26008BA7A0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5756AA921D4C1B56008BA7A0 /* EnemyGenerator.cpp */,
+				5756AA931D4C1B56008BA7A0 /* EnemyGenerator.h */,
+				5756AA941D4C1B56008BA7A0 /* GameData.cpp */,
+				5756AA951D4C1B56008BA7A0 /* GameData.h */,
+				5756AA961D4C1B56008BA7A0 /* GameLevelPlanner.cpp */,
+				5756AA971D4C1B56008BA7A0 /* GameLevelPlanner.h */,
+				5756AA981D4C1B56008BA7A0 /* GameMediator.cpp */,
+				5756AA991D4C1B56008BA7A0 /* GameMediator.h */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5756AA9E1D4C1CA9008BA7A0 /* native */ = {
+			isa = PBXGroup;
+			children = (
+				5756AAA31D4C1CA9008BA7A0 /* iOS */,
+				5756AAA51D4C1CA9008BA7A0 /* wrapper */,
+			);
+			name = native;
+			path = ../native;
+			sourceTree = "<group>";
+		};
+		5756AAA31D4C1CA9008BA7A0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5756AAA41D4C1CA9008BA7A0 /* UnityAdsWrapper.mm */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5756AAA51D4C1CA9008BA7A0 /* wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				5756AAA61D4C1CA9008BA7A0 /* UnityAdsWrapper.h */,
+			);
+			path = wrapper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -387,7 +570,7 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = MDDB52YB8L;
+						DevelopmentTeam = 5P49UJYQ85;
 					};
 				};
 			};
@@ -444,23 +627,24 @@
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
-				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
-				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				5756AB2D1D4C3E08008BA7A0 /* sound in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				5756AB241D4C3D88008BA7A0 /* game in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
+				5756AB2A1D4C3DFE008BA7A0 /* icon in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				5756AB271D4C3DE7008BA7A0 /* str in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,12 +653,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
+				5756AB281D4C3DE7008BA7A0 /* str in Resources */,
+				5756AB2B1D4C3DFE008BA7A0 /* icon in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
+				5756AB251D4C3D88008BA7A0 /* game in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
-				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				5756AB2E1D4C3E08008BA7A0 /* sound in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,10 +670,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5756AA9D1D4C1B56008BA7A0 /* GameMediator.cpp in Sources */,
+				5756AA861D4C19B1008BA7A0 /* BulletObject.cpp in Sources */,
+				5756AA871D4C19B1008BA7A0 /* EnemyObject.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				5756AAA91D4C1CA9008BA7A0 /* UnityAdsWrapper.mm in Sources */,
+				5756AA9C1D4C1B56008BA7A0 /* GameLevelPlanner.cpp in Sources */,
+				5756AA7B1D4C18CF008BA7A0 /* RankingScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				5756AA891D4C19B1008BA7A0 /* PlayerObject.cpp in Sources */,
+				5756AA8E1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp in Sources */,
+				5756AA9B1D4C1B56008BA7A0 /* GameData.cpp in Sources */,
+				5756AB321D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */,
+				5756AA8F1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp in Sources */,
+				5756AA9A1D4C1B56008BA7A0 /* EnemyGenerator.cpp in Sources */,
+				5756AA7A1D4C18CF008BA7A0 /* PowerUpScene.cpp in Sources */,
+				5756AA881D4C19B1008BA7A0 /* HitObject.cpp in Sources */,
+				5756AB3A1D4CB2E9008BA7A0 /* SquarePieceLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				5756AA7C1D4C18CF008BA7A0 /* TitleScene.cpp in Sources */,
+				5756AA761D4C18CF008BA7A0 /* GroupLogoScene.cpp in Sources */,
+				5756AA781D4C18CF008BA7A0 /* GameScene.cpp in Sources */,
+				5756AA771D4C18CF008BA7A0 /* GameOverScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,9 +700,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5756AB331D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */,
+				5756AB3B1D4CB2E9008BA7A0 /* SquarePieceLayer.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +728,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(PROJECT_DIR)/../unity-ads-sdk\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -542,9 +749,12 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.nagohiyo.eraseSandwich;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7";
@@ -556,7 +766,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(PROJECT_DIR)/../unity-ads-sdk\"";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -572,9 +785,12 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.nagohiyo.eraseSandwich;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7";

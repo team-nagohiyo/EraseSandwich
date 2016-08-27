@@ -34,6 +34,9 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+    
+    bool isLongScreen(float w,float h);
+
 };
 
 #endif // _APP_DELEGATE_H_

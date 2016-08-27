@@ -1,5 +1,10 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "TitleScene.h"
+
+#include "GroupLogoScene.h"
+
+//#include "AppCCloudPlugin.h"
+//#define MEDIA_KEY "7f6de7b004dc223856907051e3727d67e1b947be"
 
 USING_NS_CC;
 
@@ -30,15 +35,81 @@ bool AppDelegate::applicationDidFinishLaunching() {
         glview = GLViewImpl::create("My Game");
         director->setOpenGLView(glview);
     }
+    
+//    // appC cloud 開始
+//    bool startResult = AppCCloudPlugin::setMK_iOS(MEDIA_KEY).start();
+//    if(startResult){
+//        CCLOG("start() succeeded");
+//    }else{
+//        CCLOG("start() failed");
+//    }
+//    startResult = AppCCloudPlugin::setOptions(API_GAMERS).setMK_iOS(MEDIA_KEY).start();
+//    if(startResult){
+//        CCLOG("start() succeeded");
+//    }else{
+//        CCLOG("start() failed");
+//    }
+    
+    //プラットフォーム別の設定
+    Application::Platform platform = Application::getInstance()->getTargetPlatform();
+    switch (platform) {
+        case cocos2d::Application::Platform::OS_IPAD:
+            if(glview->getFrameSize().width < glview->getFrameSize().height)
+            {
+                glview->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+            }
+            else
+            {
+                glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+            }
+            break;
+            
+        case cocos2d::Application::Platform::OS_ANDROID:
+        case cocos2d::Application::Platform::OS_IPHONE:
+        {
+            bool isLong = this->isLongScreen(glview->getFrameSize().width,glview->getFrameSize().height);
+            if(glview->getFrameSize().width < glview->getFrameSize().height)
+            {
+                
+                if(isLong)
+                {
+                    glview->setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
+                }
+                else
+                {
+                    glview->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+                }
+            }
+            else
+            {
+                if(isLong)
+                {
+                    glview->setDesignResolutionSize(960, 640, ResolutionPolicy::SHOW_ALL);
+                }
+                else
+                {
+                    glview->setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
+                }
+            }
+        }
+        default:
+            glview->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+            break;
+    }
+    
 
     // turn on display FPS
-    director->setDisplayStats(true);
+//    director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    auto scene = TitleScene::createScene();
+#else
+    auto scene = GroupLogoScene::createScene();
+#endif
 
     // run
     director->runWithScene(scene);
@@ -60,4 +131,22 @@ void AppDelegate::applicationWillEnterForeground() {
 
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+}
+
+bool AppDelegate::isLongScreen(float w , float h)
+{
+    float longSize;
+    float shortSize;
+    if(w < h)
+    {
+        longSize = h;
+        shortSize = w;
+    }
+    else
+    {
+        longSize = w;
+        shortSize = h;
+    }
+    
+    return (longSize / shortSize) > 1.6f;
 }

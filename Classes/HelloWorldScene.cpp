@@ -26,7 +26,7 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
+        
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -71,6 +71,67 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
+    
+    cocos2d::EventListenerTouchAllAtOnce *one = EventListenerTouchAllAtOnce::create();
+    one->onTouchesBegan = [=](const std::vector<Touch*>&touches, Event*)
+    {
+        CCLOG("touchesBegan %lu",touches.size());
+        
+        for(int index = 0;index < touches.size() ; index++)
+        {
+            auto it = std::find(_fingerIdList.begin(),_fingerIdList.end(), touches.at(index)->getID() );
+            if(it == _fingerIdList.end())
+            {
+                CCLOG("add touchid %d",touches.at(index)->getID());
+                _fingerIdList.push_back(touches.at(index)->getID());
+            }
+        }
+        
+    };
+    one->onTouchesMoved = [=](const std::vector<Touch*>&touches, Event*)
+    {
+        CCLOG("onTouchesMoved %lu",touches.size());
+
+        for(int index = 0;index < touches.size() ; index++)
+        {
+            auto it = std::find(_fingerIdList.begin(),_fingerIdList.end(), touches.at(index)->getID() );
+            if(it == _fingerIdList.end())
+            {
+                CCLOG("add touchid %d",touches.at(index)->getID());
+                _fingerIdList.push_back(touches.at(index)->getID());
+            }
+        }
+    };
+    one->onTouchesEnded = [=](const std::vector<Touch*>&touches, Event*)
+    {
+        CCLOG("onTouchesEnded %lu",touches.size());
+        
+        for(int index = 0;index < touches.size() ; index++)
+        {
+            auto it = std::find(_fingerIdList.begin(),_fingerIdList.end(), touches.at(index)->getID() );
+            if(it != _fingerIdList.end())
+            {
+                CCLOG("Del touchid %d",touches.at(index)->getID());
+                _fingerIdList.remove(touches.at(index)->getID());
+            }
+        }
+    };
+    one->onTouchesCancelled = [=](const std::vector<Touch*>&touches, Event*)
+    {
+        CCLOG("onTouchesCancelled %lu",touches.size());
+
+        for(int index = 0;index < touches.size() ; index++)
+        {
+            auto it = std::find(_fingerIdList.begin(),_fingerIdList.end(), touches.at(index)->getID() );
+            if(it != _fingerIdList.end())
+            {
+                CCLOG("Del touchid %d",touches.at(index)->getID());
+                _fingerIdList.remove(touches.at(index)->getID());
+            }
+        }
+    };
+    
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(one,this);
     
     return true;
 }
