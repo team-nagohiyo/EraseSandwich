@@ -15,10 +15,6 @@
 class SquarePieceLayer
 :public cocos2d::Layer
 {
-private:
-    cocos2d::LayerColor * m_backColor;
-    bool m_select;
-    cocos2d::LayerColor * m_selectColor;
 public:
     enum pieceType : int
     {
@@ -30,13 +26,20 @@ public:
         PT_BOM,
         PT_MAX
     };
+private:
+    cocos2d::LayerColor * m_backColor;
+    bool m_select;
+    cocos2d::LayerColor * m_selectColor;
+    pieceType m_type;
+public:
     SquarePieceLayer();
     virtual ~SquarePieceLayer();
     
     CREATE_FUNC(SquarePieceLayer);
     bool init() override;
-    
-    void setType(pieceType);
+
+    pieceType getColorType();
+    void setColorType(pieceType);
     void setMainColor(cocos2d::Color3B color);
     void setPieceSize(cocos2d::Size size);
     
@@ -51,5 +54,9 @@ public:
     void eraseAction();
     //
     void generateAction();
+    
+    CC_SYNTHESIZE(int, m_IndexRow, IndexRow)
+    CC_SYNTHESIZE(int, m_IndexColumn, IndexColumn)
+    
 };
 #endif /* SquarePieceLayer_hpp */

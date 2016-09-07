@@ -14,6 +14,9 @@ SquarePieceLayer::SquarePieceLayer()
 :m_backColor(nullptr)
 ,m_select(false)
 ,m_selectColor(nullptr)
+,m_type(PT_RED)
+,m_IndexRow(0)
+,m_IndexColumn(0)
 {
     
 }
@@ -36,7 +39,11 @@ bool SquarePieceLayer::init()
     return true;
 }
 
-void SquarePieceLayer::setType(pieceType type)
+SquarePieceLayer::pieceType SquarePieceLayer::getColorType()
+{
+    return m_type;
+}
+void SquarePieceLayer::setColorType(pieceType type)
 {
     switch(type)
     {
@@ -59,6 +66,7 @@ void SquarePieceLayer::setType(pieceType type)
             setMainColor(Color3B::GRAY);
             break;
     }
+    m_type = type;
 }
 
 
@@ -83,6 +91,7 @@ void SquarePieceLayer::select()
 {
     m_select = true;
     
+    if(m_selectColor)m_selectColor->removeFromParent();
     m_selectColor = LayerColor::create(Color4B(0x00,0xFF,0xFF,0x7F));
     m_selectColor->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
     m_selectColor->ignoreAnchorPointForPosition(false);
@@ -101,7 +110,7 @@ void SquarePieceLayer::unselect()
 {
     m_select = false;
     
-    m_selectColor->removeFromParent();
+    if(m_selectColor)m_selectColor->removeFromParent();
     m_selectColor = nullptr;
     
     this->m_backColor->setScale(1.0f);
