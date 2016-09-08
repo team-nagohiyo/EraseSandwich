@@ -10,7 +10,7 @@
 #define __care_of_road__PuzzleControllLayer__
 
 #include "cocos2d.h"
-#include "SquarePieceLayer.h"
+#include "puzzle/SquarePieceLayer.h"
 
 enum PuzzleState
 {

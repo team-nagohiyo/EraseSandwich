@@ -6,10 +6,10 @@
 //
 //
 
-#include "EnemyGenerator.h"
-#include "EnemyObject.h"
-#include "GameMediator.h"
-#include "GameLevelPlanner.h"
+#include "Manager/EnemyGenerator.h"
+#include "Object/EnemyObject.h"
+#include "Manager/GameMediator.h"
+#include "Manager/GameLevelPlanner.h"
 
 USING_NS_CC;
 

@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
-#include "TitleScene.h"
+#include "Scene/TitleScene.h"
 
-#include "GroupLogoScene.h"
+#include "Scene/GroupLogoScene.h"
 
 //#include "AppCCloudPlugin.h"
 //#define MEDIA_KEY "7f6de7b004dc223856907051e3727d67e1b947be"
@@ -36,7 +36,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
     
-//    // appC cloud 開始
+//    // appC cloud 開姁E
 //    bool startResult = AppCCloudPlugin::setMK_iOS(MEDIA_KEY).start();
 //    if(startResult){
 //        CCLOG("start() succeeded");
@@ -50,7 +50,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        CCLOG("start() failed");
 //    }
     
-    //プラットフォーム別の設定
+    //プラチE��フォーム別の設宁E
     Application::Platform platform = Application::getInstance()->getTargetPlatform();
     switch (platform) {
         case cocos2d::Application::Platform::OS_IPAD:

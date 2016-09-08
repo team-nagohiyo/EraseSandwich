@@ -13,9 +13,9 @@
 #include "RollBackgroundLayer.h"
 #include "BattleScreenLayer.h"
 
-#include "BulletObject.h"
-#include "EnemyObject.h"
-#include "PlayerObject.h"
+#include "Object/BulletObject.h"
+#include "Object/EnemyObject.h"
+#include "Object/PlayerObject.h"
 #include "PuzzleControllLayer.h"
 
 class GameScene : public cocos2d::Layer

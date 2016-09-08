@@ -6,12 +6,12 @@
 //
 //
 
-#include "GameOverScene.h"
-#include "GameData.h"
-#include "GameScene.h"
-#include "PowerUpScene.h"
-#include "RankingScene.h"
-#include "TitleScene.h"
+#include "Scene/GameOverScene.h"
+#include "Manager/GameData.h"
+#include "Scene/GameScene.h"
+#include "Scene/PowerUpScene.h"
+#include "Scene/RankingScene.h"
+#include "Scene/TitleScene.h"
 
 #include "SimpleAudioEngine.h"
 

@@ -6,9 +6,9 @@
 //
 //
 
-#include "RankingScene.h"
-#include "TitleScene.h"
-#include "GameData.h"
+#include "Scene/RankingScene.h"
+#include "Scene/TitleScene.h"
+#include "Manager/GameData.h"
 
 //#include "AppCCloudPlugin.h"
 

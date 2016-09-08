@@ -66,6 +66,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(VC_SourcePath);$(VC_SourcePath)..\Classes</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -101,6 +102,10 @@
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
 xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
     </PreLinkEvent>
+    <PreBuildEvent>
+      <Command>nkf --overwrite -oc=UTF-8-BOM $(ProjectDir)**/*.cpp
+nkf --overwrite -oc=UTF-8-BOM $(ProjectDir)**/*.h</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -138,12 +143,48 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\BattleScreenLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Manager\EnemyGenerator.cpp" />
+    <ClCompile Include="..\Classes\Manager\GameData.cpp" />
+    <ClCompile Include="..\Classes\Manager\GameLevelPlanner.cpp" />
+    <ClCompile Include="..\Classes\Manager\GameMediator.cpp" />
+    <ClCompile Include="..\Classes\Object\BulletObject.cpp" />
+    <ClCompile Include="..\Classes\Object\EnemyObject.cpp" />
+    <ClCompile Include="..\Classes\Object\HitObject.cpp" />
+    <ClCompile Include="..\Classes\Object\PlayerObject.cpp" />
+    <ClCompile Include="..\Classes\PuzzleControllLayer.cpp" />
+    <ClCompile Include="..\Classes\puzzle\SquarePieceLayer.cpp" />
+    <ClCompile Include="..\Classes\RollBackgroundLayer.cpp" />
+    <ClCompile Include="..\Classes\Scene\GameOverScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\GameScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\GroupLogoScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\PowerUpScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\RankingScene.cpp" />
+    <ClCompile Include="..\Classes\Scene\TitleScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\BattleScreenLayer.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Manager\EnemyGenerator.h" />
+    <ClInclude Include="..\Classes\Manager\GameData.h" />
+    <ClInclude Include="..\Classes\Manager\GameLevelPlanner.h" />
+    <ClInclude Include="..\Classes\Manager\GameMediator.h" />
+    <ClInclude Include="..\Classes\Object\BulletObject.h" />
+    <ClInclude Include="..\Classes\Object\EnemyObject.h" />
+    <ClInclude Include="..\Classes\Object\HitObject.h" />
+    <ClInclude Include="..\Classes\Object\PlayerObject.h" />
+    <ClInclude Include="..\Classes\PuzzleControllLayer.h" />
+    <ClInclude Include="..\Classes\puzzle\SquarePieceLayer.h" />
+    <ClInclude Include="..\Classes\RollBackgroundLayer.h" />
+    <ClInclude Include="..\Classes\Scene\GameOverScene.h" />
+    <ClInclude Include="..\Classes\Scene\GameScene.h" />
+    <ClInclude Include="..\Classes\Scene\GroupLogoScene.h" />
+    <ClInclude Include="..\Classes\Scene\PowerUpScene.h" />
+    <ClInclude Include="..\Classes\Scene\RankingScene.h" />
+    <ClInclude Include="..\Classes\Scene\TitleScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

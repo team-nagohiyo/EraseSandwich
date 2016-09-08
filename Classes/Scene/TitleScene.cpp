@@ -6,11 +6,11 @@
 //
 //
 
-#include "TitleScene.h"
-#include "GameData.h"
-#include "GameScene.h"
-#include "PowerUpScene.h"
-#include "RankingScene.h"
+#include "Scene/TitleScene.h"
+#include "Manager/GameData.h"
+#include "Scene/GameScene.h"
+#include "Scene/PowerUpScene.h"
+#include "Scene/RankingScene.h"
 
 #include "SimpleAudioEngine.h"
 //#include "UnityAdsWrapper.h"
