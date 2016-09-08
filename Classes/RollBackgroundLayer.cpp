@@ -7,7 +7,7 @@
 //
 
 #include "RollBackgroundLayer.h"
-#include "GameData.h"
+#include "Manager/GameData.h"
 
 USING_NS_CC;
 

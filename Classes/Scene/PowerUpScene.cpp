@@ -6,9 +6,9 @@
 //
 //
 
-#include "PowerUpScene.h"
-#include "TitleScene.h"
-#include "GameData.h"
+#include "Scene/PowerUpScene.h"
+#include "Scene/TitleScene.h"
+#include "Manager/GameData.h"
 
 
 #define DEF_TITLE_Y (400.0f)

@@ -6,8 +6,8 @@
 //
 //
 
-#include "BulletObject.h"
-#include "EnemyObject.h"
+#include "Object/BulletObject.h"
+#include "Object/EnemyObject.h"
 #include "SimpleAudioEngine.h"
 
 USING_NS_CC;

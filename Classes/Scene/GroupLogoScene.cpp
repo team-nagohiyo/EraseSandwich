@@ -6,8 +6,8 @@
 //
 //
 
-#include "GroupLogoScene.h"
-#include "TitleScene.h"
+#include "Scene/GroupLogoScene.h"
+#include "Scene/TitleScene.h"
 
 USING_NS_CC;
 

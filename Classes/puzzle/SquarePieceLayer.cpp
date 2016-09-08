@@ -6,7 +6,7 @@
 //
 //
 
-#include "SquarePieceLayer.h"
+#include "puzzle/SquarePieceLayer.h"
 
 USING_NS_CC;
 

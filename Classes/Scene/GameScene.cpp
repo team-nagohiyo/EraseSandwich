@@ -6,11 +6,11 @@
 //
 //
 
-#include "GameScene.h"
-#include "GameOverScene.h"
-#include "GameData.h"
-#include "GameMediator.h"
-#include "EnemyGenerator.h"
+#include "Scene/GameScene.h"
+#include "Scene/GameOverScene.h"
+#include "Manager/GameData.h"
+#include "Manager/GameMediator.h"
+#include "Manager/EnemyGenerator.h"
 
 #include "SimpleAudioEngine.h"
 

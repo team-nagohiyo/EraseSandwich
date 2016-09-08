@@ -6,8 +6,8 @@
 //
 //
 
-#include "GameMediator.h"
-#include "GameScene.h"
+#include "Manager/GameMediator.h"
+#include "Scene/GameScene.h"
 
 GameMediator * GameMediator::getInstance()
 {

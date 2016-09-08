@@ -6,7 +6,7 @@
 //
 //
 
-#include "GameLevelPlanner.h"
+#include "Manager/GameLevelPlanner.h"
 
 /**
  * ステージ構成設定値
