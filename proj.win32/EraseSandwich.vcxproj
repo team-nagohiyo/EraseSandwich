@@ -103,8 +103,8 @@
 xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</Command>
     </PreLinkEvent>
     <PreBuildEvent>
-      <Command>nkf --overwrite -oc=UTF-8-BOM $(ProjectDir)**/*.cpp
-nkf --overwrite -oc=UTF-8-BOM $(ProjectDir)**/*.h</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

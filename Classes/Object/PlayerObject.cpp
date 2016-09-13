@@ -7,7 +7,7 @@
 //
 
 #include "PlayerObject.h"
-#include "GameMediator.h"
+#include "Manager/GameMediator.h"
 #include "SimpleAudioEngine.h"
 
 USING_NS_CC;

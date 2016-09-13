@@ -1,4 +1,4 @@
-//
+﻿//
 //  EnemyGenerator.cpp
 //  care_of_road
 //
