@@ -104,7 +104,7 @@ bool GameScene::init()
     //更新の開始
     this->scheduleUpdate();
     
-    this->m_TouchControl = PuzzleControllLayer::create();
+    this->m_TouchControl = PuzzleBoardControllLayer::create();
     this->m_TouchControl->setPosition(origin);
     this->addChild(this->m_TouchControl,1);
     
@@ -123,9 +123,6 @@ bool GameScene::init()
  */
 void GameScene::update(float dt)
 {
-    //ヒットチェック
-    this->hitCheck();
-    
     //オブジェクト行動
     this->updateAction(dt);
     
@@ -134,38 +131,9 @@ void GameScene::update(float dt)
     
     //スコア表示の更新
     this->refreshScoreLabel();
-}
-/**
- * ヒットチェック
- */
-void GameScene::hitCheck()
-{
-    if(this->getState() == GameScene::GameState::GamePlay)
-    {
-        for(auto target : this->m_EnemyList)
-        {
-            if(false == target->getEnabled())continue;
-            
-            for(auto work : this->m_BulletList)
-            {
-                if(false == work->getEnabled())continue;
-                float range = work->getHitLength() + target->getHitLength();
-                if((work->getPosition() - target->getPosition()).length() < range)
-                {
-                    target->entryHitObject(work);
-                    work->entryHitObject(target);
-                }
-            }
-            
-            if(false == m_PlayerObject->getEnabled())continue;
-            float range = this->m_PlayerObject->getHitLength() + target->getHitLength();
-            if((this->m_PlayerObject->getPosition() - target->getPosition()).length() < range)
-            {
-                target->entryHitObject(this->m_PlayerObject);
-                this->m_PlayerObject->entryHitObject(target);
-            }
-        }
-    }
+    
+    //パズルボードの更新
+    this->m_TouchControl->updateStateAction(dt);
 }
 
 /**

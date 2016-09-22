@@ -1,12 +1,12 @@
 //
-//  PuzzleControllLayer.cpp
+//  PuzzleBoardControllLayer.cpp
 //  care_of_road
 //
 //  Created by ooharayukio on 2015/09/16.
 //
 //
 
-#include "PuzzleControllLayer.h"
+#include "PuzzleBoardControllLayer.h"
 
 USING_NS_CC;
 
@@ -16,7 +16,61 @@ USING_NS_CC;
 #define PANEL_SIZE (cocos2d::Size(92,92))
 #define PANEL_MARGEN (cocos2d::Vec2(2.0f,2.0f))
 
-PuzzleControllLayer::PuzzleControllLayer()
+namespace BoardState {
+    /**
+     * ステートの開始処理
+     */
+    void StateBegin::begin()
+    {
+    }
+    
+    //パネルの消去
+    void StateErase::begin()
+    {
+        for(auto rows : m_PuzzleBoard->getPuzzleTable())
+        {
+            for(auto panel : rows)
+            {
+                if(panel->isSelect())
+                {
+                    panel->unselect();
+                    panel->eraseAction();
+                }
+            }
+        }
+    }
+    //------------------------------------------------------
+    //パネルの生成
+    /**
+     * ステートの開始処理
+     */
+    void StateGenerate::begin()
+    {
+        for(auto rows : m_PuzzleBoard->getPuzzleTable())
+        {
+            for(auto panel : rows)
+            {
+                if(panel->isSelect())
+                {
+                    panel->unselect();
+                    panel->generateAction();
+                }
+            }
+        }
+    }
+
+    //------------------------------------------------------
+    //パネルのコンボ
+    /**
+     * ステートの開始処理
+     */
+    void StateCombo::begin()
+    {
+        
+    }
+}
+
+PuzzleBoardControllLayer::PuzzleBoardControllLayer()
 :m_firstSelect(nullptr)
 ,m_lastSelect(nullptr)
 {
@@ -31,12 +85,20 @@ PuzzleControllLayer::PuzzleControllLayer()
             m_puzleTable[widthIndex].push_back(nullptr);
         }
     }
+    
+    //ステートの追加
+    m_StateController.addState(new BoardState::StateBegin(this));
+    m_StateController.addState(new BoardState::StateWait(this));
+    m_StateController.addState(new BoardState::StateSelect(this));
+    m_StateController.addState(new BoardState::StateErase(this));
+    m_StateController.addState(new BoardState::StateCombo(this));
+    m_StateController.addState(new BoardState::StateGenerate(this));
 }
-PuzzleControllLayer::~PuzzleControllLayer()
+PuzzleBoardControllLayer::~PuzzleBoardControllLayer()
 {
     
 }
-bool PuzzleControllLayer::init()
+bool PuzzleBoardControllLayer::init()
 {
     if(!Layer::init())
     {
@@ -47,10 +109,10 @@ bool PuzzleControllLayer::init()
     
     this->m_Listener = EventListenerTouchOneByOne::create();
     this->m_Listener->setSwallowTouches(true);
-    this->m_Listener->onTouchBegan = CC_CALLBACK_2(PuzzleControllLayer::onTouchBegan, this);
-    this->m_Listener->onTouchMoved = CC_CALLBACK_2(PuzzleControllLayer::onTouchMoved, this);
-    this->m_Listener->onTouchEnded = CC_CALLBACK_2(PuzzleControllLayer::onTouchEnded, this);
-    this->m_Listener->onTouchCancelled = CC_CALLBACK_2(PuzzleControllLayer::onTouchCancelled, this);
+    this->m_Listener->onTouchBegan = CC_CALLBACK_2(PuzzleBoardControllLayer::onTouchBegan, this);
+    this->m_Listener->onTouchMoved = CC_CALLBACK_2(PuzzleBoardControllLayer::onTouchMoved, this);
+    this->m_Listener->onTouchEnded = CC_CALLBACK_2(PuzzleBoardControllLayer::onTouchEnded, this);
+    this->m_Listener->onTouchCancelled = CC_CALLBACK_2(PuzzleBoardControllLayer::onTouchCancelled, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(this->m_Listener, this);
 
 
@@ -85,8 +147,58 @@ bool PuzzleControllLayer::init()
     
     return true;
 }
+/**
+ * @breif 行動中か
+ * @return true = 行動中
+ */
+bool PuzzleBoardControllLayer::isRunBoardAction()
+{
+    return m_StateController.getCurrentStateId() != BoardState::BSI_WAIT;
+}
+/**
+ * @brief ステートの更新管理
+ *
+ */
+void PuzzleBoardControllLayer::updateStateObserver(float deltatime)
+{
+    auto state = m_StateController.getCurrentState();
+    if(state)
+    {
+        state->checkChengeState();
+    }
+}
+/**
+ * @breif ステートに合わせた行動
+ */
+void PuzzleBoardControllLayer::updateStateAction(float deltatime)
+{
+    //ステートの更新処理
+    m_StateController.updateState(deltatime);
+}
 
-bool PuzzleControllLayer::onTouchBegan(Touch *touch, Event *unused_event)
+//-----------------------------------------------------------------
+//ステート変更系
+//-----------------------------------------------------------------
+/**
+ * 選択ステートに移行する
+ */
+void PuzzleBoardControllLayer::onStateSelect()
+{
+    m_StateController.chengeState(BoardState::BSI_SELECT);
+}
+/**
+ * 選択ステートに移行する
+ */
+void PuzzleBoardControllLayer::onStateWait()
+{
+    m_StateController.chengeState(BoardState::BSI_WAIT);
+}
+
+
+//-----------------------------------------------------------------
+//タップ系
+//-----------------------------------------------------------------
+bool PuzzleBoardControllLayer::onTouchBegan(Touch *touch, Event *unused_event)
 {    
     //選択
     for(auto row : m_puzleTable)
@@ -110,7 +222,7 @@ bool PuzzleControllLayer::onTouchBegan(Touch *touch, Event *unused_event)
     return true;
 }
 
-void PuzzleControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
+void PuzzleBoardControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
 {
     //最後の選択
     if(nullptr == m_firstSelect)return;
@@ -196,7 +308,7 @@ void PuzzleControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
     
 }
 
-void PuzzleControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
+void PuzzleBoardControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
 {
     if(m_PuzzleTableRect.containsPoint(touch->getLocation())
        &&
@@ -204,17 +316,7 @@ void PuzzleControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
        )
     {
         //選択
-        for(auto rows : m_puzleTable)
-        {
-            for(auto panel : rows)
-            {
-                if(panel->isSelect())
-                {
-                    panel->unselect();
-                    panel->eraseAction();
-                }
-            }
-        }
+        m_StateController.chengeState(BoardState::BSI_ERASE);
     }
     else
     {
@@ -226,7 +328,7 @@ void PuzzleControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
     m_selectlist.clear();
 }
 
-void PuzzleControllLayer::onTouchCancelled(Touch *touch, Event *unused_event)
+void PuzzleBoardControllLayer::onTouchCancelled(Touch *touch, Event *unused_event)
 {
     for(auto panel : m_selectlist)
     {

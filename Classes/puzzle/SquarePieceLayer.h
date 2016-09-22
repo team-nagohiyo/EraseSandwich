@@ -21,14 +21,13 @@ public:
         PT_RED = 0,
         PT_GREEN,
         PT_BULE,
-        PT_YELLOW,
-        PT_PURPLE,
         PT_BOM,
         PT_MAX
     };
 private:
     cocos2d::LayerColor * m_backColor;
     bool m_select;
+    bool m_erase;
     cocos2d::LayerColor * m_selectColor;
     pieceType m_type;
 public:
@@ -49,6 +48,8 @@ public:
     void unselect();
     
     bool isSelect();
+    
+    bool isErase();
 
     //
     void eraseAction();

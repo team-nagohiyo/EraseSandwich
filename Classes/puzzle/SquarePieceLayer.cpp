@@ -14,6 +14,7 @@ SquarePieceLayer::SquarePieceLayer()
 :m_backColor(nullptr)
 ,m_select(false)
 ,m_selectColor(nullptr)
+,m_erase(false)
 ,m_type(PT_RED)
 ,m_IndexRow(0)
 ,m_IndexColumn(0)
@@ -56,12 +57,6 @@ void SquarePieceLayer::setColorType(pieceType type)
         case PT_BULE:
             setMainColor(Color3B::BLUE);
             break;
-        case PT_YELLOW:
-            setMainColor(Color3B::YELLOW);
-            break;
-        case PT_PURPLE:
-            setMainColor(Color3B(0xFF,0x00,0xFF));
-            break;
         default:
             setMainColor(Color3B::GRAY);
             break;
@@ -84,6 +79,10 @@ void SquarePieceLayer::setPieceSize(cocos2d::Size size)
 bool SquarePieceLayer::isSelect()
 {
     return m_select;
+}
+bool SquarePieceLayer::isErase()
+{
+    return m_erase;
 }
 
 //
@@ -124,6 +123,9 @@ void SquarePieceLayer::eraseAction()
     cocos2d::Vector<FiniteTimeAction*> seq,seq2,seq3;
     
     seq.pushBack(EaseOut::create(RotateBy::create(1.0f, 360*10),0.5f));
+    seq.pushBack(CallFunc::create([=](){
+                                      m_erase = true;
+                                  }));
     seq2.pushBack(EaseOut::create(FadeTo::create(1.0f, 0),0.5f));
     seq3.pushBack(EaseOut::create(ScaleTo::create(1.0f, 0),0.5f));
     
@@ -136,6 +138,7 @@ void SquarePieceLayer::eraseAction()
 //
 void SquarePieceLayer::generateAction()
 {
+    m_erase = false;
     cocos2d::Vector<FiniteTimeAction*> seq,seq2;
     
     seq.pushBack(EaseOut::create(FadeTo::create(1.0f, 0),0.5f));

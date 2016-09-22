@@ -16,7 +16,7 @@
 #include "Object/BulletObject.h"
 #include "Object/EnemyObject.h"
 #include "Object/PlayerObject.h"
-#include "PuzzleControllLayer.h"
+#include "PuzzleBoardControllLayer.h"
 
 class GameScene : public cocos2d::Layer
 {
@@ -39,7 +39,7 @@ protected:
     
     cocos2d::Layer* m_EnemyLayer;
     cocos2d::Layer* m_BulletLayer;
-    PuzzleControllLayer * m_TouchControl;
+    PuzzleBoardControllLayer * m_TouchControl;
     
     PlayerObject * m_PlayerObject;
     
@@ -70,11 +70,6 @@ public:
      * 更新
      */
     virtual void update(float dt);
-    
-    /**
-     * ヒットチェック
-     */
-    virtual void hitCheck();
     
     /**
      * 行動

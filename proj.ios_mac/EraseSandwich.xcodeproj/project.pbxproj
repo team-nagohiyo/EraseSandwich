@@ -51,6 +51,8 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		571F413E1D8FD1CF0035E2A6 /* StateController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571F413C1D8FD1CF0035E2A6 /* StateController.cpp */; };
+		571F413F1D8FD1CF0035E2A6 /* StateController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571F413C1D8FD1CF0035E2A6 /* StateController.cpp */; };
 		5749818C1D81D66D00D8C014 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574981801D81D66D00D8C014 /* GameOverScene.cpp */; };
 		5749818D1D81D66D00D8C014 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574981801D81D66D00D8C014 /* GameOverScene.cpp */; };
 		5749818E1D81D66D00D8C014 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574981811D81D66D00D8C014 /* GameScene.cpp */; };
@@ -82,7 +84,7 @@
 		574981BE1D822E7100D8C014 /* GameMediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574981B61D822E7100D8C014 /* GameMediator.cpp */; };
 		574981BF1D822E7100D8C014 /* GameMediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574981B61D822E7100D8C014 /* GameMediator.cpp */; };
 		5756AA8E1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */; };
-		5756AA8F1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */; };
+		5756AA8F1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5756AA8C1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.cpp */; };
 		5756AAA91D4C1CA9008BA7A0 /* UnityAdsWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5756AAA41D4C1CA9008BA7A0 /* UnityAdsWrapper.mm */; };
 		5756AAF01D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */; };
 		5756AAF11D4C1FAF008BA7A0 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */; };
@@ -187,6 +189,8 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		571F413C1D8FD1CF0035E2A6 /* StateController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateController.cpp; path = Manager/StateController.cpp; sourceTree = "<group>"; };
+		571F413D1D8FD1CF0035E2A6 /* StateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StateController.h; path = Manager/StateController.h; sourceTree = "<group>"; };
 		574981801D81D66D00D8C014 /* GameOverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameOverScene.cpp; path = Scene/GameOverScene.cpp; sourceTree = "<group>"; };
 		574981811D81D66D00D8C014 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Scene/GameScene.cpp; sourceTree = "<group>"; };
 		574981821D81D66D00D8C014 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TitleScene.cpp; path = Scene/TitleScene.cpp; sourceTree = "<group>"; };
@@ -219,8 +223,8 @@
 		574981B71D822E7100D8C014 /* GameMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMediator.h; path = Manager/GameMediator.h; sourceTree = "<group>"; };
 		5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RollBackgroundLayer.cpp; sourceTree = "<group>"; };
 		5756AA8B1D4C1ADB008BA7A0 /* RollBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RollBackgroundLayer.h; path = ../Classes/RollBackgroundLayer.h; sourceTree = SOURCE_ROOT; };
-		5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PuzzleControllLayer.cpp; path = ../Classes/PuzzleControllLayer.cpp; sourceTree = SOURCE_ROOT; };
-		5756AA8D1D4C1ADB008BA7A0 /* PuzzleControllLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleControllLayer.h; path = ../Classes/PuzzleControllLayer.h; sourceTree = SOURCE_ROOT; };
+		5756AA8C1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PuzzleBoardControllLayer.cpp; path = ../Classes/PuzzleBoardControllLayer.cpp; sourceTree = SOURCE_ROOT; };
+		5756AA8D1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleBoardControllLayer.h; path = ../Classes/PuzzleBoardControllLayer.h; sourceTree = SOURCE_ROOT; };
 		5756AAA41D4C1CA9008BA7A0 /* UnityAdsWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnityAdsWrapper.mm; sourceTree = "<group>"; };
 		5756AAA61D4C1CA9008BA7A0 /* UnityAdsWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityAdsWrapper.h; sourceTree = "<group>"; };
 		5756AAEF1D4C1FAF008BA7A0 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAds.framework; path = "../../care_of_road/unity-ads-sdk/UnityAds.framework"; sourceTree = "<group>"; };
@@ -393,8 +397,8 @@
 				574981981D822E1000D8C014 /* Scene */,
 				5756AA8A1D4C1ADB008BA7A0 /* RollBackgroundLayer.cpp */,
 				5756AA8B1D4C1ADB008BA7A0 /* RollBackgroundLayer.h */,
-				5756AA8C1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp */,
-				5756AA8D1D4C1ADB008BA7A0 /* PuzzleControllLayer.h */,
+				5756AA8C1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.cpp */,
+				5756AA8D1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				5756AB301D4CA405008BA7A0 /* BattleScreenLayer.cpp */,
@@ -497,6 +501,8 @@
 		574981AF1D822E6400D8C014 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				571F413C1D8FD1CF0035E2A6 /* StateController.cpp */,
+				571F413D1D8FD1CF0035E2A6 /* StateController.h */,
 				574981B01D822E7100D8C014 /* EnemyGenerator.cpp */,
 				574981B11D822E7100D8C014 /* EnemyGenerator.h */,
 				574981B21D822E7100D8C014 /* GameData.cpp */,
@@ -694,12 +700,13 @@
 				574981921D81D66D00D8C014 /* GroupLogoScene.cpp in Sources */,
 				5756AB321D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */,
 				574981A91D822E5200D8C014 /* EnemyObject.cpp in Sources */,
-				5756AA8F1D4C1ADB008BA7A0 /* PuzzleControllLayer.cpp in Sources */,
+				5756AA8F1D4C1ADB008BA7A0 /* PuzzleBoardControllLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				574981AB1D822E5200D8C014 /* HitObject.cpp in Sources */,
 				5749818C1D81D66D00D8C014 /* GameOverScene.cpp in Sources */,
 				574981BE1D822E7100D8C014 /* GameMediator.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				571F413E1D8FD1CF0035E2A6 /* StateController.cpp in Sources */,
 				574981961D81D66D00D8C014 /* RankingScene.cpp in Sources */,
 				574981901D81D66D00D8C014 /* TitleScene.cpp in Sources */,
 				574981BC1D822E7100D8C014 /* GameLevelPlanner.cpp in Sources */,
@@ -720,6 +727,7 @@
 				574981BF1D822E7100D8C014 /* GameMediator.cpp in Sources */,
 				574981951D81D66D00D8C014 /* PowerUpScene.cpp in Sources */,
 				5756AB331D4CA405008BA7A0 /* BattleScreenLayer.cpp in Sources */,
+				571F413F1D8FD1CF0035E2A6 /* StateController.cpp in Sources */,
 				574981B91D822E7100D8C014 /* EnemyGenerator.cpp in Sources */,
 				574981BD1D822E7100D8C014 /* GameLevelPlanner.cpp in Sources */,
 				574981AE1D822E5200D8C014 /* PlayerObject.cpp in Sources */,
