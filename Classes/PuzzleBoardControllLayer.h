@@ -75,11 +75,22 @@ namespace BoardState {
     //パネルの許可待ち
     class StateWait : public PuzzleBoardState
     {
+    private:
+        float m_waitTime;
     public:
         StateWait(PuzzleBoardControllLayer*puzzleBoard)
         :PuzzleBoardState(puzzleBoard){};
         
         virtual int getStateID() override { return BOARD_STATE_ID::BSI_WAIT; }
+        
+        /**
+         * ステートの開始処理
+         */
+        virtual void begin() override;
+        /**
+         * ステートの更新処理
+         */
+        virtual void update(float delta) override;
     };
     //パネルの選択
     class StateSelect : public PuzzleBoardState
@@ -101,6 +112,10 @@ namespace BoardState {
          * ステートの開始処理
          */
         virtual void begin() override;
+        /**
+         * ステートの更新処理
+         */
+        virtual void update(float delta) override;
     };
     //パネルの生成
     class StateGenerate : public PuzzleBoardState
@@ -114,6 +129,10 @@ namespace BoardState {
          * ステートの開始処理
          */
         virtual void begin() override;
+        /**
+         * ステートの更新処理
+         */
+        virtual void update(float delta) override;
     };
     
     //パネルのコンボ
@@ -188,9 +207,17 @@ public:
      */
     void onStateSelect();
     /**
-     * 選択ステートに移行する
+     * 停止ステートに移行する
      */
     void onStateWait();
+    /**
+     * 生成ステートに移行する
+     */
+    void onStateGenerate();
+    /**
+     * コンボステートに移行する
+     */
+    void onStateCombo();
     
     std::vector<std::vector<SquarePieceLayer*>> & getPuzzleTable()
     {

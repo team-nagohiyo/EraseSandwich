@@ -15,6 +15,7 @@ SquarePieceLayer::SquarePieceLayer()
 ,m_select(false)
 ,m_selectColor(nullptr)
 ,m_erase(false)
+,m_actionFlg(false)
 ,m_type(PT_RED)
 ,m_IndexRow(0)
 ,m_IndexColumn(0)
@@ -115,6 +116,11 @@ void SquarePieceLayer::unselect()
     this->m_backColor->setScale(1.0f);
     this->setLocalZOrder(0);
 }
+//何かの実行中か
+bool SquarePieceLayer::isAction()
+{
+    return m_actionFlg;
+}
 
 
 //
@@ -124,7 +130,8 @@ void SquarePieceLayer::eraseAction()
     
     seq.pushBack(EaseOut::create(RotateBy::create(1.0f, 360*10),0.5f));
     seq.pushBack(CallFunc::create([=](){
-                                      m_erase = true;
+        m_erase = true;
+        m_actionFlg = false;
                                   }));
     seq2.pushBack(EaseOut::create(FadeTo::create(1.0f, 0),0.5f));
     seq3.pushBack(EaseOut::create(ScaleTo::create(1.0f, 0),0.5f));
@@ -134,6 +141,8 @@ void SquarePieceLayer::eraseAction()
                             Sequence::create(seq2),
                             Sequence::create(seq3),
                             NULL));
+    
+    m_actionFlg = true;
 }
 //
 void SquarePieceLayer::generateAction()
@@ -141,12 +150,16 @@ void SquarePieceLayer::generateAction()
     m_erase = false;
     cocos2d::Vector<FiniteTimeAction*> seq,seq2;
     
-    seq.pushBack(EaseOut::create(FadeTo::create(1.0f, 0),0.5f));
-    seq2.pushBack(EaseOut::create(ScaleTo::create(1.0f, 1.0f),0.5f));
+    seq.pushBack(EaseOut::create(FadeTo::create(0.25f, 255),0.5f));
+    seq2.pushBack(EaseOut::create(ScaleTo::create(0.25f, 1.0f),0.5f));
+    seq.pushBack(CallFunc::create([=](){
+        m_actionFlg = false;
+    }));
     
     this->m_backColor->runAction(Spawn::create(
                             Sequence::create(seq),
                             Sequence::create(seq2),
                             NULL));
+    m_actionFlg = true;
 }
 

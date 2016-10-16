@@ -28,6 +28,7 @@ private:
     cocos2d::LayerColor * m_backColor;
     bool m_select;
     bool m_erase;
+    bool m_actionFlg;
     cocos2d::LayerColor * m_selectColor;
     pieceType m_type;
 public:
@@ -47,10 +48,15 @@ public:
     //
     void unselect();
     
+    //選択状態か
     bool isSelect();
     
+    //消去済みか
     bool isErase();
 
+    //何かの実行中か
+    bool isAction();
+    
     //
     void eraseAction();
     //

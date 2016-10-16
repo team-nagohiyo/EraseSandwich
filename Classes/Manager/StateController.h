@@ -63,8 +63,8 @@ public:
      */
     int getCurrentStateId()
     {
-        if(m_current)return -1;
-        return m_current->getStateID();
+        if(m_current)return m_current->getStateID();
+        return -1;
     }
     /**
      * カレントステート
@@ -81,7 +81,6 @@ public:
     {
         if(state == nullptr)return;
         
-        if(m_StateList.size() == 0) m_current = state;
         m_StateList.push_back(state);
     }
     
@@ -149,18 +148,26 @@ public:
         {
             m_current->update(delta);
         }
+        else
+        {
+            if(m_StateList.size() > 0)
+            {
+                m_reserve = *m_StateList.begin();
+            }
+        }
         
         //入れ替え
         if(m_reserve)
         {
             m_before = m_current;
             m_current = m_reserve;
+            m_reserve = nullptr;
             
             //終了処理
-            m_before->end();
+            if(m_before)m_before->end();
             
             //開始処理
-            m_current->begin();
+            if(m_current)m_current->begin();
         }
         
     }

@@ -22,8 +22,27 @@ namespace BoardState {
      */
     void StateBegin::begin()
     {
+        m_PuzzleBoard->onStateSelect();
+    }
+    //------------------------------------------------------
+    void StateWait::begin()
+    {
+        m_waitTime = 0.0f;
+    }
+    /**
+     * ステートの更新処理
+     */
+    void StateWait::update(float delta)
+    {
+        m_waitTime += delta;
+        if(m_waitTime > 1.0f)
+        {
+            m_PuzzleBoard->onStateSelect();
+        }
     }
     
+    //------------------------------------------------------
+    //パネルの生成
     //パネルの消去
     void StateErase::begin()
     {
@@ -39,6 +58,36 @@ namespace BoardState {
             }
         }
     }
+    /**
+     * ステートの更新処理
+     */
+    void StateErase::update(float delta)
+    {
+        bool nonAction = true;
+        for(auto rows : m_PuzzleBoard->getPuzzleTable())
+        {
+            for(auto panel : rows)
+            {
+                if(panel->isAction())
+                {
+                    //誰かはアニメーション中
+                    nonAction = false;
+                    break;
+                }
+            }
+            if(!nonAction)
+            {
+                break;
+            }
+        }
+        if(nonAction)
+        {
+            //コンボにする
+            //m_PuzzleBoard->onStateCombo();
+            m_PuzzleBoard->onStateGenerate();
+        }
+    }
+    
     //------------------------------------------------------
     //パネルの生成
     /**
@@ -50,15 +99,44 @@ namespace BoardState {
         {
             for(auto panel : rows)
             {
-                if(panel->isSelect())
+                if(panel->isErase())
                 {
-                    panel->unselect();
+                    panel->setColorType((SquarePieceLayer::pieceType)(rand()%SquarePieceLayer::pieceType::PT_MAX));
                     panel->generateAction();
                 }
             }
         }
     }
-
+    /**
+     * ステートの更新処理
+     */
+    void StateGenerate::update(float delta)
+    {
+        bool nonAction = true;
+        for(auto rows : m_PuzzleBoard->getPuzzleTable())
+        {
+            for(auto panel : rows)
+            {
+                if(panel->isAction())
+                {
+                    //誰かはアニメーション中
+                    nonAction = false;
+                    break;
+                }
+            }
+            if(!nonAction)
+            {
+                break;
+            }
+        }
+        if(nonAction)
+        {
+            //コンボにする
+            //m_PuzzleBoard->onStateCombo();
+            m_PuzzleBoard->onStateWait();
+        }
+    }
+    
     //------------------------------------------------------
     //パネルのコンボ
     /**
@@ -193,13 +271,32 @@ void PuzzleBoardControllLayer::onStateWait()
 {
     m_StateController.chengeState(BoardState::BSI_WAIT);
 }
+/**
+ * 生成ステートに移行する
+ */
+void PuzzleBoardControllLayer::onStateGenerate()
+{
+    m_StateController.chengeState(BoardState::BSI_GENERATE);
+}
+/**
+ * コンボステートに移行する
+ */
+void PuzzleBoardControllLayer::onStateCombo()
+{
+    m_StateController.chengeState(BoardState::BSI_COMBO);
+}
 
 
 //-----------------------------------------------------------------
 //タップ系
 //-----------------------------------------------------------------
 bool PuzzleBoardControllLayer::onTouchBegan(Touch *touch, Event *unused_event)
-{    
+{
+    if(this->m_StateController.getCurrentStateId() != BoardState::BSI_SELECT)
+    {
+        return false;
+    }
+    
     //選択
     for(auto row : m_puzleTable)
     {
@@ -311,8 +408,7 @@ void PuzzleBoardControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
 void PuzzleBoardControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
 {
     if(m_PuzzleTableRect.containsPoint(touch->getLocation())
-       &&
-       m_firstSelect->getColorType() == m_lastSelect->getColorType()
+       && (m_firstSelect && m_firstSelect->getColorType() == m_lastSelect->getColorType())
        )
     {
         //選択
@@ -338,4 +434,6 @@ void PuzzleBoardControllLayer::onTouchCancelled(Touch *touch, Event *unused_even
         }
     }
     m_selectlist.clear();
+    
+    m_firstSelect = nullptr;
 }
