@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="jp.nagohiyo.eraseSandwich" version="1.0.0">
+    <ui-application appid="jp.nagohiyo.eraseSandwich" exec="hellocpp" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>EraseSandwich</label>
+        <icon>EraseSandwich.png</icon>
+    </ui-application>
+</manifest>

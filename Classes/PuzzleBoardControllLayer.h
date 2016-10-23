@@ -46,13 +46,16 @@ namespace BoardState {
          */
         virtual void end(){};
     };
-    
+
+    //--------------------------------
+    //ブロック動作のステート
     enum BOARD_STATE_ID : int
     {
         BSI_BEGIN = 0,
         BSI_WAIT,
         BSI_SELECT,
         BSI_ERASE,
+        BSI_CHANGE,
         BSI_GENERATE,
         BSI_COMBO,
     };
@@ -170,6 +173,15 @@ protected:
     cocos2d::Rect m_PuzzleTableRect;
 
     StateController<BoardState::PuzzleBoardState> m_StateController;
+
+    //計算テーブル
+    static int m_energieRateTable[];
+    //コンボ時の同じ色を探す距離
+    int m_searchRange;
+    
+    //消されたブロックのエネルギーを保持
+    int m_energieTank[SquarePieceLayer::pieceType::PT_MAX];
+    
 public:
     CREATE_FUNC(PuzzleBoardControllLayer);
     virtual bool init();
@@ -219,9 +231,17 @@ public:
      */
     void onStateCombo();
     
+    //--------------------------
+    //ゲッター・セッター
+    //--------------------------
     std::vector<std::vector<SquarePieceLayer*>> & getPuzzleTable()
     {
         return m_puzleTable;
+    }
+    
+    virtual int getSearchRange()
+    {
+        return m_searchRange;
     }
     
 };

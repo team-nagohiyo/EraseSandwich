@@ -1,6 +1,6 @@
 /****************************************************************************
- Copyright (c) 2014     PlayFirst Inc.
- Copyright (c) 2014     Chukong Technologies Inc.
+ Copyright (c) 2014      PlayFirst Inc.
+ Copyright (c) 2014-2015 Chukong Technologies Inc.
  
  http://www.cocos2d-x.org
  
@@ -25,9 +25,11 @@
 
 #ifndef __CC_REF_PTR_H__
 #define __CC_REF_PTR_H__
+/// @cond DO_NOT_SHOW
 
 #include "base/CCRef.h"
 #include "base/ccMacros.h"
+#include <functional>
 #include <type_traits>
 
 NS_CC_BEGIN
@@ -211,16 +213,12 @@ public:
     
     inline bool operator > (typename std::remove_const<T>::type * other) const { return _ptr > other; }
     
-    inline bool operator > (const std::nullptr_t other) const { return _ptr > other; }
-    
     
     inline bool operator < (const RefPtr<T> & other) const { return _ptr < other._ptr; }
     
     inline bool operator < (const T * other) const { return _ptr < other; }
     
     inline bool operator < (typename std::remove_const<T>::type * other) const { return _ptr < other; }
-    
-    inline bool operator < (const std::nullptr_t other) const { return _ptr < other; }
     
         
     inline bool operator >= (const RefPtr<T> & other) const { return _ptr >= other._ptr; }
@@ -229,16 +227,12 @@ public:
     
     inline bool operator >= (typename std::remove_const<T>::type * other) const { return _ptr >= other; }
     
-    inline bool operator >= (const std::nullptr_t other) const { return _ptr >= other; }
-    
         
     inline bool operator <= (const RefPtr<T> & other) const { return _ptr <= other._ptr; }
     
     inline bool operator <= (const T * other) const { return _ptr <= other; }
     
     inline bool operator <= (typename std::remove_const<T>::type * other) const { return _ptr <= other; }
-    
-    inline bool operator <= (const std::nullptr_t other) const { return _ptr <= other; }
     
         
     inline operator bool() const { return _ptr != nullptr; }
@@ -282,6 +276,54 @@ private:
     Ref * _ptr;
 };
     
+template<class T> inline
+bool operator<(const RefPtr<T>& r, std::nullptr_t)
+{
+    return std::less<T*>()(r.get(), nullptr);
+}
+
+template<class T> inline
+bool operator<(std::nullptr_t, const RefPtr<T>& r)
+{
+    return std::less<T*>()(nullptr, r.get());
+}
+
+template<class T> inline
+bool operator>(const RefPtr<T>& r, std::nullptr_t)
+{
+    return nullptr < r;
+}
+
+template<class T> inline
+bool operator>(std::nullptr_t, const RefPtr<T>& r)
+{
+    return r < nullptr;
+}
+
+template<class T> inline
+bool operator<=(const RefPtr<T>& r, std::nullptr_t)
+{
+    return !(nullptr < r);
+}
+
+template<class T> inline
+bool operator<=(std::nullptr_t, const RefPtr<T>& r)
+{
+    return !(r < nullptr);
+}
+
+template<class T> inline
+bool operator>=(const RefPtr<T>& r, std::nullptr_t)
+{
+    return !(r < nullptr);
+}
+
+template<class T> inline
+bool operator>=(std::nullptr_t, const RefPtr<T>& r)
+{
+    return !(nullptr < r);
+}
+
 /**
  * Cast between RefPtr types statically.
  */
@@ -307,4 +349,5 @@ template<class T, class U> RefPtr<T> dynamic_pointer_cast(const RefPtr<U> & r)
 
 NS_CC_END
 
+/// @endcond
 #endif  // __CC_REF_PTR_H__

@@ -10,21 +10,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes">
-      <UniqueIdentifier>{ec6ebab7-bb57-4bcf-97c9-e61a524621d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Manager">
-      <UniqueIdentifier>{4eeb34c8-5c3f-4ab0-8150-f84dc569cc84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Object">
-      <UniqueIdentifier>{cb2bd940-4c84-4381-aede-c490b87b22ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\puzzle">
-      <UniqueIdentifier>{d13f3c9e-d263-4ee7-bf88-7192704d6cc4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Classes\Scene">
-      <UniqueIdentifier>{1084ec93-527e-4921-b383-46bf5fe4504d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,60 +21,6 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BattleScreenLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PuzzleControllLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\RollBackgroundLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Manager\EnemyGenerator.cpp">
-      <Filter>Classes\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Manager\GameData.cpp">
-      <Filter>Classes\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Manager\GameLevelPlanner.cpp">
-      <Filter>Classes\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Manager\GameMediator.cpp">
-      <Filter>Classes\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\BulletObject.cpp">
-      <Filter>Classes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\EnemyObject.cpp">
-      <Filter>Classes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\HitObject.cpp">
-      <Filter>Classes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Object\PlayerObject.cpp">
-      <Filter>Classes\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\puzzle\SquarePieceLayer.cpp">
-      <Filter>Classes\puzzle</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GameOverScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GameScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\GroupLogoScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\PowerUpScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\RankingScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Scene\TitleScene.cpp">
-      <Filter>Classes\Scene</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -100,60 +31,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BattleScreenLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PuzzleControllLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\RollBackgroundLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Manager\EnemyGenerator.h">
-      <Filter>Classes\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Manager\GameData.h">
-      <Filter>Classes\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Manager\GameLevelPlanner.h">
-      <Filter>Classes\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Manager\GameMediator.h">
-      <Filter>Classes\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\BulletObject.h">
-      <Filter>Classes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\EnemyObject.h">
-      <Filter>Classes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\HitObject.h">
-      <Filter>Classes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Object\PlayerObject.h">
-      <Filter>Classes\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\puzzle\SquarePieceLayer.h">
-      <Filter>Classes\puzzle</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GameOverScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GameScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\GroupLogoScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\PowerUpScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\RankingScene.h">
-      <Filter>Classes\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Scene\TitleScene.h">
-      <Filter>Classes\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

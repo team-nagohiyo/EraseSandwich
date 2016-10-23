@@ -18,7 +18,6 @@ USING_NS_CC;
 using namespace CocosDenshion;
 GameScene::GameScene()
 :m_State(GameState::StartWait)
-,m_TapStartSprite(nullptr)
 ,m_GameOverWaitTime(0)
 {
     //仲介クラスに登録する
@@ -86,11 +85,6 @@ bool GameScene::init()
                             labelScore->getPositionY()));
     this->m_ScoreLabel->setAnchorPoint(Vec2(0.0f,0.5f));
     this->addChild(this->m_ScoreLabel, 60);
-    
-    //タップスタートのUI
-    this->m_TapStartSprite = Sprite::create("str/title_tap_start.png");
-    this->m_TapStartSprite->setPosition(this->getContentSize() * 0.5f);
-    this->addChild(this->m_TapStartSprite, 1000);
     
     //スコア表示の更新
     this->refreshScoreLabel();

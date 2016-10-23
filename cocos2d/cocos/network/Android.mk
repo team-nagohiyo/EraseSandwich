@@ -5,11 +5,13 @@ LOCAL_MODULE := cocos_network_static
 
 LOCAL_MODULE_FILENAME := libnetwork
 
-LOCAL_SRC_FILES := HttpClient.cpp \
+LOCAL_SRC_FILES := HttpClient-android.cpp \
 SocketIO.cpp \
-WebSocket.cpp
+WebSocket.cpp \
+CCDownloader.cpp \
+CCDownloader-android.cpp
 
-LOCAL_EXPORT_C_INCLUDES :=
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../external/curl/include/android \
                     $(LOCAL_PATH)/../../external/websockets/include/android

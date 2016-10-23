@@ -147,6 +147,8 @@ namespace BoardState {
         
     }
 }
+//計算テーブル
+int PuzzleBoardControllLayer::m_energieRateTable[] = {1,2,4,10};
 
 PuzzleBoardControllLayer::PuzzleBoardControllLayer()
 :m_firstSelect(nullptr)
