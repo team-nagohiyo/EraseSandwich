@@ -1,16 +1,16 @@
 //
-//  SquarePieceLayer.cpp
+//  SquarePanelLayer.cpp
 //  EraseSandwich
 //
 //  Created by 大原幸夫 on 2016/07/30.
 //
 //
 
-#include "puzzle/SquarePieceLayer.h"
+#include "puzzle/SquarePanelLayer.h"
 
 USING_NS_CC;
 
-SquarePieceLayer::SquarePieceLayer()
+SquarePanelLayer::SquarePanelLayer()
 :m_backColor(nullptr)
 ,m_select(false)
 ,m_selectColor(nullptr)
@@ -22,12 +22,12 @@ SquarePieceLayer::SquarePieceLayer()
 {
     
 }
-SquarePieceLayer::~SquarePieceLayer()
+SquarePanelLayer::~SquarePanelLayer()
 {
     
 }
 
-bool SquarePieceLayer::init()
+bool SquarePanelLayer::init()
 {
     if(!Layer::init())return false;
 
@@ -41,11 +41,11 @@ bool SquarePieceLayer::init()
     return true;
 }
 
-SquarePieceLayer::pieceType SquarePieceLayer::getColorType()
+SquarePanelLayer::pieceType SquarePanelLayer::getColorType()
 {
     return m_type;
 }
-void SquarePieceLayer::setColorType(pieceType type)
+void SquarePanelLayer::setColorType(pieceType type)
 {
     switch(type)
     {
@@ -66,28 +66,28 @@ void SquarePieceLayer::setColorType(pieceType type)
 }
 
 
-void SquarePieceLayer::setMainColor(cocos2d::Color3B color)
+void SquarePanelLayer::setMainColor(cocos2d::Color3B color)
 {
     m_backColor->setColor(color);
 }
-void SquarePieceLayer::setPieceSize(cocos2d::Size size)
+void SquarePanelLayer::setPieceSize(cocos2d::Size size)
 {
     m_backColor->setContentSize(size);
     this->setContentSize(size);
     m_backColor->setPosition(size * 0.5f);
 }
 
-bool SquarePieceLayer::isSelect()
+bool SquarePanelLayer::isSelect()
 {
     return m_select;
 }
-bool SquarePieceLayer::isErase()
+bool SquarePanelLayer::isErase()
 {
     return m_erase;
 }
 
 //
-void SquarePieceLayer::select()
+void SquarePanelLayer::select()
 {
     m_select = true;
     
@@ -106,7 +106,7 @@ void SquarePieceLayer::select()
  
 }
 //
-void SquarePieceLayer::unselect()
+void SquarePanelLayer::unselect()
 {
     m_select = false;
     
@@ -117,14 +117,14 @@ void SquarePieceLayer::unselect()
     this->setLocalZOrder(0);
 }
 //何かの実行中か
-bool SquarePieceLayer::isAction()
+bool SquarePanelLayer::isAction()
 {
     return m_actionFlg;
 }
 
 
 //
-void SquarePieceLayer::eraseAction()
+void SquarePanelLayer::eraseAction()
 {
     cocos2d::Vector<FiniteTimeAction*> seq,seq2,seq3;
     
@@ -145,7 +145,7 @@ void SquarePieceLayer::eraseAction()
     m_actionFlg = true;
 }
 //
-void SquarePieceLayer::generateAction()
+void SquarePanelLayer::generateAction()
 {
     m_erase = false;
     cocos2d::Vector<FiniteTimeAction*> seq,seq2;

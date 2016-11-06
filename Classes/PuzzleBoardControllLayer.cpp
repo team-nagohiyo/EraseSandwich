@@ -101,7 +101,7 @@ namespace BoardState {
             {
                 if(panel->isErase())
                 {
-                    panel->setColorType((SquarePieceLayer::pieceType)(rand()%SquarePieceLayer::pieceType::PT_MAX));
+                    panel->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_MAX));
                     panel->generateAction();
                 }
             }
@@ -146,6 +146,13 @@ namespace BoardState {
     {
         
     }
+    /**
+     * ステートの更新処理
+     */
+    void StateCombo::update(float delta)
+    {
+        
+    }
 }
 //計算テーブル
 int PuzzleBoardControllLayer::m_energieRateTable[] = {1,2,4,10};
@@ -158,7 +165,7 @@ PuzzleBoardControllLayer::PuzzleBoardControllLayer()
     m_puzleTable.reserve(WIDTH_PANELS);
     for(int widthIndex = 0; widthIndex < WIDTH_PANELS ; widthIndex++)
     {
-        m_puzleTable.push_back(std::vector<SquarePieceLayer*>());
+        m_puzleTable.push_back(std::vector<SquarePanelLayer*>());
         for(int heightIndex = 0; heightIndex < HEIGHT_PANELS ; heightIndex++)
         {
             m_puzleTable[widthIndex].reserve(HEIGHT_PANELS);
@@ -207,8 +214,8 @@ bool PuzzleBoardControllLayer::init()
     {
         for(int y = 0;y < HEIGHT_PANELS;y++)
         {
-            auto layer = SquarePieceLayer::create();
-            layer->setColorType((SquarePieceLayer::pieceType)(rand()%SquarePieceLayer::pieceType::PT_MAX));
+            auto layer = SquarePanelLayer::create();
+            layer->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_MAX));
             layer->setPieceSize(PANEL_SIZE);
             layer->setPosition(pos);
             layer->setIndexColumn(x);
@@ -288,6 +295,156 @@ void PuzzleBoardControllLayer::onStateCombo()
     m_StateController.chengeState(BoardState::BSI_COMBO);
 }
 
+//指定色のパネルを検索してくる
+SquarePanelLayer* PuzzleBoardControllLayer::searchTableToPanel(SquarePanelLayer* begin,
+                                                               int column,
+                                                               int row,
+                                                               SquarePanelLayer::pieceType type,
+                                                               int serachRange)
+{
+    SquarePanelLayer* ret = nullptr;
+    //列で検索(最初に選択している列の何行めか)
+    for(auto panel : m_puzleTable[column])
+    {
+        if(panel->getColorType() == type)
+        {
+            ret = panel;
+            break;
+        }
+    }
+    //見つからなかった場合に行でも検索する
+    if(nullptr == ret)
+    {
+        //行で検索(最初に選択している行の何列めか)
+        for(auto rows : m_puzleTable)
+        {
+            auto panel = rows[row];
+            if(panel->getColorType() == type)
+            {
+                ret = panel;
+                break;
+            }
+        }
+    }
+    
+    return ret;
+}
+
+//指定したポイントのパネルを取得
+SquarePanelLayer* PuzzleBoardControllLayer::getPosPanel(int column,int row,cocos2d::Vec2 pos)
+{
+    SquarePanelLayer* ret = nullptr;
+    //列で検索(最初に選択している列の何行めか)
+    for(auto panel : m_puzleTable[column])
+    {
+        if(panel->getBoundingBox().containsPoint(pos))
+        {
+            //現在のタップポイントで当てはまるピース
+            ret = panel;
+            break;
+        }
+    }
+    //見つからなかった場合に行でも検索する
+    if(nullptr == ret)
+    {
+        //行で検索(最初に選択している行の何列めか)
+        for(auto rows : m_puzleTable)
+        {
+            auto panel = rows[row];
+            if(panel->getBoundingBox().containsPoint(pos))
+            {
+                //現在のタップポイントで当てはまるピース
+                ret = panel;
+                break;
+            }
+        }
+    }
+    
+    return ret;
+}
+//選択解除処理
+void PuzzleBoardControllLayer::unselectLine(SquarePanelLayer* begin, SquarePanelLayer * end)
+{
+    auto it = m_selectlist.begin();
+    while(it != m_selectlist.end())
+    {
+        if(begin && end)
+        {
+            //同じ一列にいる場合は、消さない
+            if(end->getIndexRow() == (*it)->getIndexRow()
+               && begin->getIndexRow() == (*it)->getIndexRow())
+            {
+                it++;
+                continue;
+            }
+            if(end->getIndexColumn() == (*it)->getIndexColumn()
+               && begin->getIndexColumn() == (*it)->getIndexColumn())
+            {
+                it++;
+                continue;
+            }
+        }
+        (*it)->unselect();
+        it = m_selectlist.erase(it);
+    }
+}
+
+//選択処理
+void PuzzleBoardControllLayer::selectLine(SquarePanelLayer* begin, SquarePanelLayer * end)
+{
+    if( begin && end )
+    {
+        int rowIndex = begin->getIndexRow();
+        int columnIndex = begin->getIndexColumn();
+        
+        if(begin->getIndexRow() == end->getIndexRow())
+        {
+            //同じ行
+            for(int num = 0;num < m_puzleTable.size(); num++)
+            {
+                if(begin->getIndexColumn() > num && end->getIndexColumn() > num)
+                {
+                    //開始終了どっちよりも小さい
+                    continue;
+                }
+                if(begin->getIndexColumn() < num && end->getIndexColumn() < num)
+                {
+                    //開始終了どっちもオーバーしてる
+                    continue;
+                }
+                //選択状態じゃないので選択状態にする
+                if(!m_puzleTable[num][rowIndex]->isSelect())
+                {
+                    m_puzleTable[num][rowIndex]->select();
+                    this->m_selectlist.pushBack(m_puzleTable[num][rowIndex]);
+                }
+            }
+        }
+        else if( begin->getIndexColumn() == end->getIndexColumn() )
+        {
+            //同じ列
+            for(int num = 0; num < m_puzleTable[columnIndex].size() ; num++)
+            {
+                if(begin->getIndexRow() > num && end->getIndexRow() > num)
+                {
+                    //開始終了どっちよりも小さい
+                    continue;
+                }
+                if(begin->getIndexRow() < num && end->getIndexRow() < num)
+                {
+                    //開始終了どっちもオーバーしてる
+                    continue;
+                }
+                //選択状態じゃないので選択状態にする
+                if(!m_puzleTable[columnIndex][num]->isSelect())
+                {
+                    m_puzleTable[columnIndex][num]->select();
+                    this->m_selectlist.pushBack(m_puzleTable[columnIndex][num]);
+                }
+            }
+        }
+    }
+}
 
 //-----------------------------------------------------------------
 //タップ系
@@ -329,82 +486,24 @@ void PuzzleBoardControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
     int rowIndex =m_firstSelect->getIndexRow();
     int columnIndex =m_firstSelect->getIndexColumn();
     
-    //列で検索
-    for(auto panel : m_puzleTable[columnIndex])
-    {
-        if(panel->getBoundingBox().containsPoint(touch->getLocation()))
-        {
-            m_lastSelect = panel;
-            //すでに選択されている物で、最後に選んだ物じゃない場合キャンセル
-            auto it = m_puzleTable[columnIndex].begin();
-            while(it != m_puzleTable[columnIndex].end())
-            {
-                if(
-                   (
-                    (*it)->getIndexRow() < m_firstSelect->getIndexRow() &&
-                    (*it)->getIndexRow() < m_lastSelect->getIndexRow()
-                    )
-                   ||
-                   (
-                   (*it)->getIndexRow() > m_firstSelect->getIndexRow() &&
-                   (*it)->getIndexRow() > panel->getIndexRow()
-                    )
-                   )
-                {
-                    (*it)->unselect();
-                    m_selectlist.eraseObject(*it);
-                }
-                else
-                {
-                    if(!(*it)->isSelect())
-                    {
-                        (*it)->select();
-                        this->m_selectlist.pushBack(panel);
-                    }
-                }
-                it++;
-            }
-        }
-    }
-    //行で検索
-    for(auto rows : m_puzleTable)
-    {
-        auto panel = rows[rowIndex];
-        if(panel->getBoundingBox().containsPoint(touch->getLocation()))
-        {
-            m_lastSelect = panel;
-            //すでに選択されている物で、最後に選んだ物じゃない場合キャンセル
-            auto it = m_puzleTable.begin();
-            while(it != m_puzleTable.end())
-            {
-                if(
-                   (
-                    (*it)[rowIndex]->getIndexColumn() < m_firstSelect->getIndexColumn() &&
-                    (*it)[rowIndex]->getIndexColumn() < panel->getIndexColumn()
-                    )
-                   ||
-                   (
-                    (*it)[rowIndex]->getIndexColumn() > m_firstSelect->getIndexColumn() &&
-                    (*it)[rowIndex]->getIndexColumn() > panel->getIndexColumn()
-                    )
-                   )
-                {
-                    (*it)[rowIndex]->unselect();
-                    m_selectlist.eraseObject((*it)[rowIndex]);
-                }
-                else
-                {
-                    if(!(*it)[rowIndex]->isSelect())
-                    {
-                        (*it)[rowIndex]->select();
-                        this->m_selectlist.pushBack(panel);
-                    }
-                }
-                it++;
-            }
-        }
-    }
+    //最初に触ったブロックと同じなのでキャンセル
+    if(m_firstSelect->getBoundingBox().containsPoint(touch->getLocation()))return;
     
+    //---------------------------------
+    //検索　指定した行と列以外は検索しない
+    //---------------------------------
+    m_lastSelect = nullptr;
+    m_lastSelect = getPosPanel(columnIndex,rowIndex,touch->getLocation());
+
+    //---------------------------------
+    //選択状態をとりあえず解除
+    //---------------------------------
+    unselectLine(m_firstSelect, m_lastSelect);
+    
+    //---------------------------------
+    //選択処理
+    //---------------------------------
+    selectLine(m_firstSelect,m_lastSelect);
 }
 
 void PuzzleBoardControllLayer::onTouchEnded(Touch *touch, Event *unused_event)

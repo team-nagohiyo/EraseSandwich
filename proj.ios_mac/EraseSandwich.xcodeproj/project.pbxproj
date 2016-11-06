@@ -56,7 +56,7 @@
 		574FF0001DBC8F54004ED146 /* PuzzleBoardControllLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FEFF61DBC8F54004ED146 /* PuzzleBoardControllLayer.cpp */; };
 		574FF0051DBC8F54004ED146 /* RollBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FEFFC1DBC8F54004ED146 /* RollBackgroundLayer.cpp */; };
 		574FF0061DBC8F54004ED146 /* BattleScreenLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FEFFD1DBC8F54004ED146 /* BattleScreenLayer.cpp */; };
-		574FF0341DBC9680004ED146 /* SquarePieceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FF0321DBC9680004ED146 /* SquarePieceLayer.cpp */; };
+		574FF0341DBC9680004ED146 /* SquarePanelLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FF0321DBC9680004ED146 /* SquarePanelLayer.cpp */; };
 		574FF04A1DBC9706004ED146 /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FF0421DBC9706004ED146 /* PlayerObject.cpp */; };
 		574FF04B1DBC9706004ED146 /* BulletObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FF0431DBC9706004ED146 /* BulletObject.cpp */; };
 		574FF04C1DBC9706004ED146 /* EnemyObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FF0451DBC9706004ED146 /* EnemyObject.cpp */; };
@@ -191,8 +191,8 @@
 		574FEFFD1DBC8F54004ED146 /* BattleScreenLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleScreenLayer.cpp; sourceTree = "<group>"; };
 		574FEFFE1DBC8F54004ED146 /* BattleScreenLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleScreenLayer.h; sourceTree = "<group>"; };
 		574FEFFF1DBC8F54004ED146 /* RollBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollBackgroundLayer.h; sourceTree = "<group>"; };
-		574FF0321DBC9680004ED146 /* SquarePieceLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquarePieceLayer.cpp; path = puzzle/SquarePieceLayer.cpp; sourceTree = "<group>"; };
-		574FF0331DBC9680004ED146 /* SquarePieceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquarePieceLayer.h; path = puzzle/SquarePieceLayer.h; sourceTree = "<group>"; };
+		574FF0321DBC9680004ED146 /* SquarePanelLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquarePanelLayer.cpp; path = puzzle/SquarePanelLayer.cpp; sourceTree = "<group>"; };
+		574FF0331DBC9680004ED146 /* SquarePanelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquarePanelLayer.h; path = puzzle/SquarePanelLayer.h; sourceTree = "<group>"; };
 		574FF0421DBC9706004ED146 /* PlayerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerObject.cpp; path = Object/PlayerObject.cpp; sourceTree = "<group>"; };
 		574FF0431DBC9706004ED146 /* BulletObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletObject.cpp; path = Object/BulletObject.cpp; sourceTree = "<group>"; };
 		574FF0441DBC9706004ED146 /* BulletObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletObject.h; path = Object/BulletObject.h; sourceTree = "<group>"; };
@@ -475,8 +475,8 @@
 		574FF0311DBC966D004ED146 /* puzzle */ = {
 			isa = PBXGroup;
 			children = (
-				574FF0321DBC9680004ED146 /* SquarePieceLayer.cpp */,
-				574FF0331DBC9680004ED146 /* SquarePieceLayer.h */,
+				574FF0321DBC9680004ED146 /* SquarePanelLayer.cpp */,
+				574FF0331DBC9680004ED146 /* SquarePanelLayer.h */,
 			);
 			name = puzzle;
 			sourceTree = "<group>";
@@ -649,7 +649,7 @@
 				5789EF5D1DBC9A1A001BC972 /* GameScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				574FF0341DBC9680004ED146 /* SquarePieceLayer.cpp in Sources */,
+				574FF0341DBC9680004ED146 /* SquarePanelLayer.cpp in Sources */,
 				574FF0051DBC8F54004ED146 /* RollBackgroundLayer.cpp in Sources */,
 				5789EF791DBC9A49001BC972 /* GameMediator.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,

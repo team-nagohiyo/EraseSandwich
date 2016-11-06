@@ -1,18 +1,18 @@
 //
-//  SquarePieceLayer.hpp
+//  SquarePanelLayer.hpp
 //  EraseSandwich
 //
 //  Created by 大原幸夫 on 2016/07/30.
 //
 //
 
-#ifndef SquarePieceLayer_hpp
-#define SquarePieceLayer_hpp
+#ifndef SquarePanelLayer_hpp
+#define SquarePanelLayer_hpp
 
 #include <stdio.h>
 #include "cocos2d.h"
 
-class SquarePieceLayer
+class SquarePanelLayer
 :public cocos2d::Layer
 {
 public:
@@ -32,10 +32,10 @@ private:
     cocos2d::LayerColor * m_selectColor;
     pieceType m_type;
 public:
-    SquarePieceLayer();
-    virtual ~SquarePieceLayer();
+    SquarePanelLayer();
+    virtual ~SquarePanelLayer();
     
-    CREATE_FUNC(SquarePieceLayer);
+    CREATE_FUNC(SquarePanelLayer);
     bool init() override;
 
     pieceType getColorType();
@@ -66,4 +66,4 @@ public:
     CC_SYNTHESIZE(int, m_IndexColumn, IndexColumn)
     
 };
-#endif /* SquarePieceLayer_hpp */
+#endif /* SquarePanelLayer_hpp */
