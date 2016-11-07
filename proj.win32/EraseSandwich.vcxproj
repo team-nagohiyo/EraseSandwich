@@ -153,7 +153,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Object\EnemyObject.cpp" />
     <ClCompile Include="..\Classes\Object\HitObject.cpp" />
     <ClCompile Include="..\Classes\Object\PlayerObject.cpp" />
-    <ClCompile Include="..\Classes\PuzzleControllLayer.cpp" />
+    <ClCompile Include="..\Classes\PuzzleBoardControllLayer.cpp" />
     <ClCompile Include="..\Classes\puzzle\SquarePieceLayer.cpp" />
     <ClCompile Include="..\Classes\RollBackgroundLayer.cpp" />
     <ClCompile Include="..\Classes\Scene\GameOverScene.cpp" />
@@ -176,7 +176,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Object\EnemyObject.h" />
     <ClInclude Include="..\Classes\Object\HitObject.h" />
     <ClInclude Include="..\Classes\Object\PlayerObject.h" />
-    <ClInclude Include="..\Classes\PuzzleControllLayer.h" />
+    <ClInclude Include="..\Classes\PuzzleBoardControllLayer.h" />
     <ClInclude Include="..\Classes\puzzle\SquarePieceLayer.h" />
     <ClInclude Include="..\Classes\RollBackgroundLayer.h" />
     <ClInclude Include="..\Classes\Scene\GameOverScene.h" />

@@ -39,9 +39,6 @@
     <ClCompile Include="..\Classes\BattleScreenLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\PuzzleControllLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\RollBackgroundLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     <ClCompile Include="..\Classes\Scene\TitleScene.cpp">
       <Filter>Classes\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\PuzzleBoardControllLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -102,9 +102,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BattleScreenLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PuzzleControllLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\RollBackgroundLayer.h">
@@ -154,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Scene\TitleScene.h">
       <Filter>Classes\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PuzzleBoardControllLayer.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
