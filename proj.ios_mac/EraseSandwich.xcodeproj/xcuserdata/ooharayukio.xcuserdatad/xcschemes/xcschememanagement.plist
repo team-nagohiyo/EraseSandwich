@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EraseSandwich Mac.xcscheme</key>
+		<key>EraseSandwich-desktop.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>EraseSandwich iOS.xcscheme</key>
+		<key>EraseSandwich-mobile.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

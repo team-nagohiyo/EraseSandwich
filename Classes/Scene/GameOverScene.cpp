@@ -74,26 +74,12 @@ bool GameOverScene::init()
     {
         GameData::getInstance()->setHighScore(GameData::getInstance()->getGameScore());
     }
-//    // ID：1885(Best score)のリーダーボードにスコア：セット
-//    AppCCloudPlugin::Gamers::setLeaderBoard(1885, GameData::getInstance()->getGameScore());
-    
-//    // プレイカウントをインクリメント
-//    AppCCloudPlugin::Gamers::incPlayCount();
-    
-    auto label = Label::createWithBMFont("str/little_number.fnt",strScore);
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height/2 + 50.0f));
-    this->addChild(label, 2);
     
     //ポイントの取得
     this->m_GetPointValue = GameData::getInstance()->getGameScore() * 0.01f;
     int totalPoint = GameData::getInstance()->getGamePoint() + this->m_GetPointValue;
     GameData::getInstance()->setGamePoint(totalPoint);
     
-    this->m_GetPointLabel = Label::createWithBMFont("str/FNT_small_font_y.fnt","Get 000000000000 pt");
-    this->m_GetPointLabel->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height/2));
-    this->addChild(this->m_GetPointLabel, 2);
     this->refreshLabelGamePoint();
 
     
@@ -222,5 +208,5 @@ void GameOverScene::refreshLabelGamePoint()
     sprintf(strPoint,"Get %12d pt",this->m_GetPointValue);
     
     //更新
-    this->m_GetPointLabel->setString(strPoint);
+    if(m_GetPointLabel)this->m_GetPointLabel->setString(strPoint);
 }

@@ -1,3 +1,0 @@
-# view AndroidManifest.xml #generated:8
--keep class com.unity3d.ads.android.view.UnityAdsFullscreenActivity { <init>(...); }
-

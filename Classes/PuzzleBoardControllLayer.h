@@ -10,7 +10,7 @@
 #define __care_of_road__PuzzleControllLayer__
 
 #include "cocos2d.h"
-#include "puzzle/SquarePieceLayer.h"
+#include "puzzle/SquarePanelLayer.h"
 #include "Manager/StateController.h"
 
 
@@ -46,13 +46,16 @@ namespace BoardState {
          */
         virtual void end(){};
     };
-    
+
+    //--------------------------------
+    //ブロック動作のステート
     enum BOARD_STATE_ID : int
     {
         BSI_BEGIN = 0,
         BSI_WAIT,
         BSI_SELECT,
         BSI_ERASE,
+        BSI_CHANGE,
         BSI_GENERATE,
         BSI_COMBO,
     };
@@ -72,7 +75,9 @@ namespace BoardState {
          */
         virtual void begin() override;
     };
+    //-------------------------------------------------------
     //パネルの許可待ち
+    //-------------------------------------------------------
     class StateWait : public PuzzleBoardState
     {
     private:
@@ -92,7 +97,9 @@ namespace BoardState {
          */
         virtual void update(float delta) override;
     };
+    //-------------------------------------------------------
     //パネルの選択
+    //-------------------------------------------------------
     class StateSelect : public PuzzleBoardState
     {
     public:
@@ -100,7 +107,9 @@ namespace BoardState {
         :PuzzleBoardState(puzzleBoard){};
         virtual int getStateID() override { return BOARD_STATE_ID::BSI_SELECT; }
     };
+    //-------------------------------------------------------
     //パネルの消去
+    //-------------------------------------------------------
     class StateErase : public PuzzleBoardState
     {
     public:
@@ -117,7 +126,9 @@ namespace BoardState {
          */
         virtual void update(float delta) override;
     };
+    //-------------------------------------------------------
     //パネルの生成
+    //-------------------------------------------------------
     class StateGenerate : public PuzzleBoardState
     {
     public:
@@ -135,7 +146,9 @@ namespace BoardState {
         virtual void update(float delta) override;
     };
     
+    //-------------------------------------------------------
     //パネルのコンボ
+    //-------------------------------------------------------
     class StateCombo : public PuzzleBoardState
     {
     public:
@@ -147,6 +160,10 @@ namespace BoardState {
          * ステートの開始処理
          */
         virtual void begin() override;
+        /**
+         * ステートの更新処理
+         */
+        virtual void update(float delta) override;
     };
     
 }
@@ -162,14 +179,37 @@ public:
 protected:
     cocos2d::EventListenerTouchOneByOne * m_Listener;
 
-    SquarePieceLayer* m_firstSelect;//最初にたっぷしたパネル
-    SquarePieceLayer* m_lastSelect;//最後にたっぷしたパネル
-    cocos2d::Vector<SquarePieceLayer*> m_selectlist;
-    std::vector<std::vector<SquarePieceLayer*>> m_puzleTable;//列・行にする
+    SquarePanelLayer* m_firstSelect;//最初にたっぷしたパネル
+    SquarePanelLayer* m_lastSelect;//最後にたっぷしたパネル
+    cocos2d::Vector<SquarePanelLayer*> m_selectlist;
+    std::vector<std::vector<SquarePanelLayer*>> m_puzleTable;//列・行にする
     
     cocos2d::Rect m_PuzzleTableRect;
 
     StateController<BoardState::PuzzleBoardState> m_StateController;
+
+    //計算テーブル
+    static int m_energieRateTable[];
+    //コンボ時の同じ色を探す距離
+    int m_searchRange;
+    
+    //消されたブロックのエネルギーを保持
+    int m_energieTank[SquarePanelLayer::pieceType::PT_MAX];
+
+    //指定色のパネルを検索してくる
+    SquarePanelLayer* searchTableToPanel(SquarePanelLayer* begin,
+                                         int column,
+                                         int row,
+                                         SquarePanelLayer::pieceType type,
+                                         int serachRange);
+    
+    //指定したポイントのパネルを取得
+    SquarePanelLayer* getPosPanel(int column,int row,cocos2d::Vec2 pos);
+
+    //選択解除処理
+    void unselectLine(SquarePanelLayer* begin, SquarePanelLayer * end);
+    //選択処理
+    void selectLine(SquarePanelLayer* begin, SquarePanelLayer * end);
 public:
     CREATE_FUNC(PuzzleBoardControllLayer);
     virtual bool init();
@@ -219,9 +259,17 @@ public:
      */
     void onStateCombo();
     
-    std::vector<std::vector<SquarePieceLayer*>> & getPuzzleTable()
+    //--------------------------
+    //ゲッター・セッター
+    //--------------------------
+    std::vector<std::vector<SquarePanelLayer*>> & getPuzzleTable()
     {
         return m_puzleTable;
+    }
+    
+    virtual int getSearchRange()
+    {
+        return m_searchRange;
     }
     
 };

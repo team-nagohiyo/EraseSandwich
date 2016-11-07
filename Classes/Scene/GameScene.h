@@ -51,7 +51,7 @@ protected:
     cocos2d::Vec2 m_StartingPos;
     cocos2d::Vec2 m_StartPos;
     
-    cocos2d::Sprite * m_TapStartSprite;
+    cocos2d::Label * m_searchLabel;
     
     //ゲームオーバー待ち時間
     float m_GameOverWaitTime;

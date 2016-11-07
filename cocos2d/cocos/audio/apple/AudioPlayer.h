@@ -33,7 +33,7 @@
 #include <string>
 #include <thread>
 #import <OpenAL/al.h>
-#include "CCPlatformMacros.h"
+#include "platform/CCPlatformMacros.h"
 
 NS_CC_BEGIN
 namespace experimental{
@@ -46,6 +46,8 @@ class AudioPlayer
 public:
     AudioPlayer();
     ~AudioPlayer();
+    
+    void destroy();
     
     //queue buffer related stuff
     bool setTime(float time);
@@ -62,6 +64,8 @@ protected:
     bool _loop;
     std::function<void (int, const std::string &)> _finishCallbak;
     
+    bool _beDestroy;
+    bool _removeByAudioEngine;
     bool _ready;
     ALuint _alSource;
     
@@ -72,7 +76,6 @@ protected:
     std::thread _rotateBufferThread;
     std::condition_variable _sleepCondition;
     std::mutex _sleepMutex;
-    bool _exitThread;
     bool _timeDirty;
     
     friend class AudioEngineImpl;
