@@ -57,7 +57,9 @@ protected:
     float m_GameOverWaitTime;
     
     BattleScreenLayer * m_BattleBack;
-    
+
+    //デバック用
+    cocos2d::Label * m_debugLabel;
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();

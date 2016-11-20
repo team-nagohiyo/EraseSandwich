@@ -85,6 +85,8 @@
 		5789EF7A1DBC9A49001BC972 /* GameMediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5789EF6C1DBC9A49001BC972 /* GameMediator.cpp */; };
 		5789EF7C1DBCA204001BC972 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5789EF7B1DBCA204001BC972 /* str */; };
 		5789EF7D1DBCA204001BC972 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5789EF7B1DBCA204001BC972 /* str */; };
+		57B26EC41DE18C3B0087E6B7 /* panel in Resources */ = {isa = PBXBuildFile; fileRef = 57B26EC31DE18C3B0087E6B7 /* panel */; };
+		57B26EC51DE18C3B0087E6B7 /* panel in Resources */ = {isa = PBXBuildFile; fileRef = 57B26EC31DE18C3B0087E6B7 /* panel */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -224,6 +226,7 @@
 		5789EF6F1DBC9A49001BC972 /* GameLevelPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLevelPlanner.h; path = Manager/GameLevelPlanner.h; sourceTree = "<group>"; };
 		5789EF701DBC9A49001BC972 /* GameMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMediator.h; path = Manager/GameMediator.h; sourceTree = "<group>"; };
 		5789EF7B1DBCA204001BC972 /* str */ = {isa = PBXFileReference; lastKnownFileType = folder; path = str; sourceTree = "<group>"; };
+		57B26EC31DE18C3B0087E6B7 /* panel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = panel; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -358,6 +361,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57B26EC31DE18C3B0087E6B7 /* panel */,
 				5789EF7B1DBCA204001BC972 /* str */,
 				574FEFE71DBC8F18004ED146 /* fonts */,
 				574FEFE81DBC8F18004ED146 /* icon */,
@@ -602,6 +606,7 @@
 				574FEFEF1DBC8F19004ED146 /* res in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				57B26EC41DE18C3B0087E6B7 /* panel in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				574FEFF11DBC8F19004ED146 /* sound in Resources */,
@@ -629,6 +634,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B26EC51DE18C3B0087E6B7 /* panel in Resources */,
 				5789EF7D1DBCA204001BC972 /* str in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 			);

@@ -82,9 +82,15 @@ bool GameScene::init()
     
     this->m_ScoreLabel = Label::createWithBMFont("str/little_number.fnt","");
     this->m_ScoreLabel->setPosition(Vec2(origin.x + labelScore->getContentSize().width + 20.0f,
-                            labelScore->getPositionY()));
+                                         labelScore->getPositionY()));
     this->m_ScoreLabel->setAnchorPoint(Vec2(0.0f,0.5f));
     this->addChild(this->m_ScoreLabel, 60);
+    
+    this->m_debugLabel = Label::createWithBMFont("str/little_number.fnt","");
+    this->m_debugLabel->setPosition(Vec2(origin.x + labelScore->getContentSize().width + 20.0f,
+                                         labelScore->getPositionY() - 100));
+    this->m_debugLabel->setAnchorPoint(Vec2(0.0f,0.5f));
+    this->addChild(this->m_debugLabel, 160);
     
     //スコア表示の更新
     this->refreshScoreLabel();
@@ -107,7 +113,7 @@ bool GameScene::init()
                               this->m_TouchControl->getContentSize().height);
     
     m_BattleBack = BattleScreenLayer::create();
-    this->addChild(m_BattleBack,1000);
+    this->addChild(m_BattleBack,100);
     m_BattleBack->setPosition(Vec2(0,visibleSize.height * 0.5f));
     
     return true;
@@ -128,6 +134,12 @@ void GameScene::update(float dt)
     
     //パズルボードの更新
     this->m_TouchControl->updateStateAction(dt);
+    
+    //デバックラベル
+    char moji[30] = "";
+    sprintf(moji,"panelState:%d",this->m_TouchControl->getState()->getStateID());
+    
+    m_debugLabel->setString(moji);
 }
 
 /**

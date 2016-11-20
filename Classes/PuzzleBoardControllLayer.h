@@ -151,9 +151,12 @@ namespace BoardState {
     //-------------------------------------------------------
     class StateCombo : public PuzzleBoardState
     {
+    private:
+        bool m_combo;
     public:
         StateCombo(PuzzleBoardControllLayer*puzzleBoard)
-        :PuzzleBoardState(puzzleBoard){};
+        :PuzzleBoardState(puzzleBoard)
+        ,m_combo(false){};
         
         virtual int getStateID() override { return BOARD_STATE_ID::BSI_COMBO; }
         /**
@@ -179,6 +182,16 @@ public:
 protected:
     cocos2d::EventListenerTouchOneByOne * m_Listener;
 
+    //カウンタ関連
+    int m_energyCycleCount;     //コンボを何回回ったか調べる
+    int m_comboCount;
+    int m_colorCount[SquarePanelLayer::pieceType::PT_MAX];
+    //計算テーブル
+    static int m_energyRateTable[];
+    //消されたブロックのエネルギーを保持
+    int m_energyTank[SquarePanelLayer::pieceType::PT_MAX];
+    
+    
     SquarePanelLayer* m_firstSelect;//最初にたっぷしたパネル
     SquarePanelLayer* m_lastSelect;//最後にたっぷしたパネル
     cocos2d::Vector<SquarePanelLayer*> m_selectlist;
@@ -188,14 +201,9 @@ protected:
 
     StateController<BoardState::PuzzleBoardState> m_StateController;
 
-    //計算テーブル
-    static int m_energieRateTable[];
     //コンボ時の同じ色を探す距離
     int m_searchRange;
     
-    //消されたブロックのエネルギーを保持
-    int m_energieTank[SquarePanelLayer::pieceType::PT_MAX];
-
     //指定色のパネルを検索してくる
     SquarePanelLayer* searchTableToPanel(SquarePanelLayer* begin,
                                          int column,
@@ -243,6 +251,21 @@ public:
     void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unused_event);
     
     /**
+     * 次のパネルを検索して確保できるか
+     */
+    bool checkNextPanel();
+    
+    /**
+     * 各パラメータをリセットする
+     */
+    void resetParam();
+    
+    /**
+     * 別ステートに移行する
+     */
+    void changeState(BoardState::BOARD_STATE_ID stateId);
+    
+    /**
      * 選択ステートに移行する
      */
     void onStateSelect();
@@ -271,6 +294,25 @@ public:
     {
         return m_searchRange;
     }
+    
+    //最後に選択したパネル
+    void setLastSelectPanel(SquarePanelLayer * panel)
+    {
+        m_lastSelect = panel;
+    }
+    
+    //最後に選択したパネル
+    SquarePanelLayer * getLastSelectPanel()
+    {
+        return m_lastSelect;
+    }
+
+    //エネルギーの加算
+    void setEnergy(SquarePanelLayer::pieceType type,int value)
+    {
+        m_energyTank[type] = value;
+    }
+
     
 };
 

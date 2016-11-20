@@ -31,12 +31,17 @@ bool SquarePanelLayer::init()
 {
     if(!Layer::init())return false;
 
-    m_backColor = LayerColor::create(Color4B::WHITE, 64, 64);
+    m_backColor = LayerColor::create(Color4B::WHITE, 80, 80);
     m_backColor->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    m_backColor->ignoreAnchorPointForPosition(false);
+    m_backColor->setIgnoreAnchorPointForPosition(false);
+
+    m_icon = Sprite::create();
+    
     setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    ignoreAnchorPointForPosition(false);
+    setIgnoreAnchorPointForPosition(false);
+
     this->addChild(m_backColor,1);
+    this->addChild(m_icon,2);
     
     return true;
 }
@@ -50,15 +55,23 @@ void SquarePanelLayer::setColorType(pieceType type)
     switch(type)
     {
         case PT_RED:
-            setMainColor(Color3B::RED);
+            setMainColor(Color3B(0xFF,0x6F,0x6F));
+            m_icon->initWithFile("panel/red.png");
             break;
         case PT_GREEN:
-            setMainColor(Color3B::GREEN);
+            setMainColor(Color3B(0x6F,0xFF,0x6F));
+            m_icon->initWithFile("panel/green.png");
             break;
         case PT_BULE:
-            setMainColor(Color3B::BLUE);
+            setMainColor(Color3B(0x6F,0x6F,0xFF));
+            m_icon->initWithFile("panel/blue.png");
+            break;
+        case PT_HEART:
+            setMainColor(Color3B(0x3F,0x3F,0x3F));
+            m_icon->initWithFile("panel/Mana-50.png");
             break;
         default:
+            m_icon->initWithFile("panel/Mana-50.png");
             setMainColor(Color3B::GRAY);
             break;
     }
@@ -75,6 +88,7 @@ void SquarePanelLayer::setPieceSize(cocos2d::Size size)
     m_backColor->setContentSize(size);
     this->setContentSize(size);
     m_backColor->setPosition(size * 0.5f);
+    m_icon->setPosition(size * 0.5f);
 }
 
 bool SquarePanelLayer::isSelect()
@@ -94,7 +108,7 @@ void SquarePanelLayer::select()
     if(m_selectColor)m_selectColor->removeFromParent();
     m_selectColor = LayerColor::create(Color4B(0x00,0xFF,0xFF,0x7F));
     m_selectColor->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    m_selectColor->ignoreAnchorPointForPosition(false);
+    m_selectColor->setIgnoreAnchorPointForPosition(false);
     m_selectColor->setContentSize(m_backColor->getContentSize()+Size(6,6));
     m_selectColor->setPosition(m_selectColor->getContentSize() * 0.5f);
     this->addChild(m_selectColor,0);

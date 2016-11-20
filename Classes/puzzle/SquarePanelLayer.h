@@ -21,11 +21,13 @@ public:
         PT_RED = 0,
         PT_GREEN,
         PT_BULE,
+        PT_HEART,
         PT_BOM,
         PT_MAX
     };
 private:
     cocos2d::LayerColor * m_backColor;
+    cocos2d::Sprite * m_icon;
     bool m_select;
     bool m_erase;
     bool m_actionFlg;

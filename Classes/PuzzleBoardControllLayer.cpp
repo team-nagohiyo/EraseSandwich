@@ -28,6 +28,7 @@ namespace BoardState {
     void StateWait::begin()
     {
         m_waitTime = 0.0f;
+        m_PuzzleBoard->resetParam();
     }
     /**
      * ステートの更新処理
@@ -101,8 +102,30 @@ namespace BoardState {
             {
                 if(panel->isErase())
                 {
-                    panel->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_MAX));
-                    panel->generateAction();
+                    if(panel == m_PuzzleBoard->getLastSelectPanel())
+                    {
+                        switch(panel->getColorType())
+                        {
+                            case SquarePanelLayer::pieceType::PT_RED:
+                                panel->setColorType(SquarePanelLayer::pieceType::PT_GREEN);
+                                break;
+                            case SquarePanelLayer::pieceType::PT_GREEN:
+                                panel->setColorType(SquarePanelLayer::pieceType::PT_BULE);
+                                break;
+                            case SquarePanelLayer::pieceType::PT_BULE:
+                                panel->setColorType(SquarePanelLayer::pieceType::PT_RED);
+                                break;
+                            default:
+                                break;
+                        }
+                        panel->generateAction();
+                    }
+                    else
+                    {
+                        //最後に消されたブロックじゃ無い
+                        panel->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_BOM));
+                        panel->generateAction();
+                    }
                 }
             }
         }
@@ -132,8 +155,7 @@ namespace BoardState {
         if(nonAction)
         {
             //コンボにする
-            //m_PuzzleBoard->onStateCombo();
-            m_PuzzleBoard->onStateWait();
+            m_PuzzleBoard->onStateCombo();
         }
     }
     
@@ -144,18 +166,46 @@ namespace BoardState {
      */
     void StateCombo::begin()
     {
-        
+        m_combo = m_PuzzleBoard->checkNextPanel();
     }
     /**
      * ステートの更新処理
      */
     void StateCombo::update(float delta)
     {
-        
+        bool nonAction = true;
+        for(auto rows : m_PuzzleBoard->getPuzzleTable())
+        {
+            for(auto panel : rows)
+            {
+                if(panel->isAction())
+                {
+                    //誰かはアニメーション中
+                    nonAction = false;
+                    break;
+                }
+            }
+            if(!nonAction)
+            {
+                break;
+            }
+        }
+        if(nonAction)
+        {
+            if(m_combo)
+            {
+                //コンボあり
+                m_PuzzleBoard->changeState(BoardState::BOARD_STATE_ID::BSI_ERASE);
+            }
+            else
+            {
+                m_PuzzleBoard->changeState(BoardState::BOARD_STATE_ID::BSI_WAIT);
+            }
+        }
     }
 }
 //計算テーブル
-int PuzzleBoardControllLayer::m_energieRateTable[] = {1,2,4,10};
+int PuzzleBoardControllLayer::m_energyRateTable[] = {1,2,4,10};
 
 PuzzleBoardControllLayer::PuzzleBoardControllLayer()
 :m_firstSelect(nullptr)
@@ -178,8 +228,8 @@ PuzzleBoardControllLayer::PuzzleBoardControllLayer()
     m_StateController.addState(new BoardState::StateWait(this));
     m_StateController.addState(new BoardState::StateSelect(this));
     m_StateController.addState(new BoardState::StateErase(this));
-    m_StateController.addState(new BoardState::StateCombo(this));
     m_StateController.addState(new BoardState::StateGenerate(this));
+    m_StateController.addState(new BoardState::StateCombo(this));
 }
 PuzzleBoardControllLayer::~PuzzleBoardControllLayer()
 {
@@ -263,9 +313,64 @@ void PuzzleBoardControllLayer::updateStateAction(float deltatime)
     m_StateController.updateState(deltatime);
 }
 
+/**
+ * 次のパネルを検索して確保できるか
+ */
+bool PuzzleBoardControllLayer::checkNextPanel()
+{
+    if(m_comboCount >= 2)
+    {
+        return false;
+    }
+    
+    if(m_lastSelect)
+    {
+        auto panel = searchTableToPanel(m_lastSelect,
+                           m_lastSelect->getIndexColumn(),
+                           m_lastSelect->getIndexRow(),
+                           m_lastSelect->getColorType(),
+                           m_searchRange);
+        if(panel)
+        {
+            m_firstSelect = m_lastSelect;
+            m_lastSelect = panel;
+            //選択を解除
+            unselectLine(m_firstSelect, m_lastSelect);
+            //選択
+            selectLine(m_firstSelect, m_lastSelect);
+
+            m_comboCount++;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return false;
+}
+/**
+ * 各パラメータをリセットする
+ */
+void PuzzleBoardControllLayer::resetParam()
+{
+    m_lastSelect = nullptr;
+    m_firstSelect = nullptr;
+    m_searchRange = 0;
+    m_energyCycleCount = 0;
+    m_comboCount = 0;
+}
+
 //-----------------------------------------------------------------
 //ステート変更系
 //-----------------------------------------------------------------
+/**
+ * 別ステートに移行する
+ */
+void PuzzleBoardControllLayer::changeState(BoardState::BOARD_STATE_ID stateId)
+{
+    m_StateController.chengeState(stateId);
+}
 /**
  * 選択ステートに移行する
  */
@@ -306,7 +411,7 @@ SquarePanelLayer* PuzzleBoardControllLayer::searchTableToPanel(SquarePanelLayer*
     //列で検索(最初に選択している列の何行めか)
     for(auto panel : m_puzleTable[column])
     {
-        if(panel->getColorType() == type)
+        if(panel->getColorType() == type && begin != panel)
         {
             ret = panel;
             break;
@@ -319,7 +424,7 @@ SquarePanelLayer* PuzzleBoardControllLayer::searchTableToPanel(SquarePanelLayer*
         for(auto rows : m_puzleTable)
         {
             auto panel = rows[row];
-            if(panel->getColorType() == type)
+            if(panel->getColorType() == type && begin != panel)
             {
                 ret = panel;
                 break;
@@ -370,6 +475,32 @@ void PuzzleBoardControllLayer::unselectLine(SquarePanelLayer* begin, SquarePanel
     {
         if(begin && end)
         {
+            int rowNum = (*it)->getIndexRow();
+            int columnNum = (*it)->getIndexColumn();
+            if(begin->getIndexRow() == end->getIndexRow())
+            {
+                if((begin->getIndexColumn() > columnNum && end->getIndexColumn() > columnNum) ||
+                   (begin->getIndexColumn() < columnNum && end->getIndexColumn() < columnNum) )
+                {
+                    //開始終了どっちよりも小さい
+                    (*it)->unselect();
+                    it = m_selectlist.erase(it);
+                    continue;
+                }
+            }
+            else if( begin->getIndexColumn() == end->getIndexColumn() )
+            {
+                //同じ列
+                if((begin->getIndexRow() > rowNum && end->getIndexRow() > rowNum) ||
+                   (begin->getIndexRow() < rowNum && end->getIndexRow() < rowNum) )
+                {
+                    //開始終了どっちよりも小さいまたはオーバー
+                    (*it)->unselect();
+                    it = m_selectlist.erase(it);
+                    continue;
+                }
+            }
+            
             //同じ一列にいる場合は、消さない
             if(end->getIndexRow() == (*it)->getIndexRow()
                && begin->getIndexRow() == (*it)->getIndexRow())
@@ -384,6 +515,7 @@ void PuzzleBoardControllLayer::unselectLine(SquarePanelLayer* begin, SquarePanel
                 continue;
             }
         }
+        
         (*it)->unselect();
         it = m_selectlist.erase(it);
     }
@@ -508,8 +640,21 @@ void PuzzleBoardControllLayer::onTouchMoved(Touch *touch, Event *unused_event)
 
 void PuzzleBoardControllLayer::onTouchEnded(Touch *touch, Event *unused_event)
 {
+    //---------------------------------
+    //選択状態をとりあえず解除
+    //---------------------------------
+    unselectLine(m_firstSelect, m_lastSelect);
+    
+    //---------------------------------
+    //選択処理
+    //---------------------------------
+    selectLine(m_firstSelect,m_lastSelect);
+    
+    //---------------------------------
+    //選択ブロックの色判定
+    //---------------------------------
     if(m_PuzzleTableRect.containsPoint(touch->getLocation())
-       && (m_firstSelect && m_firstSelect->getColorType() == m_lastSelect->getColorType())
+       && (m_firstSelect && m_lastSelect && m_firstSelect->getColorType() == m_lastSelect->getColorType())
        )
     {
         //選択
