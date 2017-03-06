@@ -67,12 +67,12 @@ void SquarePanelLayer::setColorType(pieceType type)
             m_icon->initWithFile("panel/blue.png");
             break;
         case PT_HEART:
-            setMainColor(Color3B(0x3F,0x3F,0x3F));
-            m_icon->initWithFile("panel/Mana-50.png");
+            setMainColor(Color3B(0xFF,200,230));
+            m_icon->initWithFile("panel/Hearts.png");
             break;
         default:
+            setMainColor(Color3B(0x3F,0x3F,0x3F));
             m_icon->initWithFile("panel/Mana-50.png");
-            setMainColor(Color3B::GRAY);
             break;
     }
     m_type = type;

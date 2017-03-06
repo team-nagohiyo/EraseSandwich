@@ -55,6 +55,14 @@ namespace BoardState {
                 {
                     panel->unselect();
                     panel->eraseAction();
+                    
+                    //検索距離の加算
+                    int addRange = 1;
+                    if(panel->getColorType() == m_PuzzleBoard->getLastSelectPanel()->getColorType())
+                    {
+                        addRange = 2; //同じ色なら２加算
+                    }
+                    m_PuzzleBoard->setSearchRange(m_PuzzleBoard->getSearchRange() + addRange);
                 }
             }
         }
@@ -123,7 +131,7 @@ namespace BoardState {
                     else
                     {
                         //最後に消されたブロックじゃ無い
-                        panel->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_BOM));
+                        panel->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_HEART));
                         panel->generateAction();
                     }
                 }
@@ -265,7 +273,7 @@ bool PuzzleBoardControllLayer::init()
         for(int y = 0;y < HEIGHT_PANELS;y++)
         {
             auto layer = SquarePanelLayer::create();
-            layer->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_MAX));
+            layer->setColorType((SquarePanelLayer::pieceType)(rand()%SquarePanelLayer::pieceType::PT_BOM));
             layer->setPieceSize(PANEL_SIZE);
             layer->setPosition(pos);
             layer->setIndexColumn(x);
@@ -405,14 +413,21 @@ SquarePanelLayer* PuzzleBoardControllLayer::searchTableToPanel(SquarePanelLayer*
                                                                int column,
                                                                int row,
                                                                SquarePanelLayer::pieceType type,
-                                                               int serachRange)
+                                                               int &serachRange)
 {
     SquarePanelLayer* ret = nullptr;
+    int maxRange = 0;
     //列で検索(最初に選択している列の何行めか)
     for(auto panel : m_puzleTable[column])
     {
-        if(panel->getColorType() == type && begin != panel)
+        int range = abs(panel->getIndexRow() - row);
+        if(panel->getColorType() == type && //選択色と同じ色
+           begin != panel && //選択中のパネルじゃない
+           serachRange >= range &&
+           maxRange < range
+           )
         {
+            maxRange = range;
             ret = panel;
             break;
         }
@@ -424,13 +439,22 @@ SquarePanelLayer* PuzzleBoardControllLayer::searchTableToPanel(SquarePanelLayer*
         for(auto rows : m_puzleTable)
         {
             auto panel = rows[row];
-            if(panel->getColorType() == type && begin != panel)
+            int range = abs(panel->getIndexColumn() - column);
+            if(panel->getColorType() == type &&
+               begin != panel && //選択中のパネルじゃない
+               serachRange >= range &&
+               maxRange < range
+               )
             {
+                maxRange = range;
                 ret = panel;
                 break;
             }
         }
     }
+    
+    //検索されたパネル分消費
+    serachRange -= maxRange;
     
     return ret;
 }

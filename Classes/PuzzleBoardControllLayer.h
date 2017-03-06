@@ -209,7 +209,7 @@ protected:
                                          int column,
                                          int row,
                                          SquarePanelLayer::pieceType type,
-                                         int serachRange);
+                                         int &serachRange);
     
     //指定したポイントのパネルを取得
     SquarePanelLayer* getPosPanel(int column,int row,cocos2d::Vec2 pos);
@@ -229,19 +229,19 @@ public:
     };
     
     /**
-     * @breif 行動中か
+     * 行動中か
      * @return true = 行動中
      */
     bool isRunBoardAction();
     
     /**
-     * @brief ステートの更新管理
+     * ステートの更新管理
      *
      */
     void updateStateObserver(float deltatime);
     
     /**
-     * @breif ステートに合わせた行動
+     * ステートに合わせた行動
      */
     void updateStateAction(float deltatime);
     
@@ -289,7 +289,13 @@ public:
     {
         return m_puzleTable;
     }
-    
+
+    //検索距離
+    virtual void setSearchRange(int value)
+    {
+        m_searchRange = value;
+    }
+    //検索距離
     virtual int getSearchRange()
     {
         return m_searchRange;

@@ -10,6 +10,8 @@
 #define StateController_hpp
 
 #include <stdio.h>
+#include <vector>
+#include <algorithm>
 
 /**
  * ステートマシン用
@@ -45,7 +47,7 @@ protected:
     T *m_before;
     T *m_current;
     
-    std::vector<T*> m_StateList;
+    std::vector< T* > m_StateList;
 public:
     StateController()
     :m_before(nullptr)
