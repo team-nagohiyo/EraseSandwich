@@ -10,7 +10,10 @@
 
 USING_NS_CC;
 
+#define DEBUG_GAUGE_TIME (20)
+
 BattleScreenLayer::BattleScreenLayer()
+:m_debugGaugeValue(0.0f)
 {
     
 }
@@ -26,11 +29,34 @@ bool BattleScreenLayer::init()
     Size winSize = Director::getInstance()->getWinSize();
     winSize.height *=0.5f;
     
-    m_Back = LayerGradient::create(Color4B::GREEN, Color4B::BLUE, Vec2(0,1));
-    this->addChild(m_Back);
+    m_background = Sprite::create("game/forest_back.png");
+    this->addChild(m_background);
+    m_background->setScale(winSize.height / m_background->getContentSize().height);
     
-    m_Back->setContentSize(winSize);
-    m_Back->setPosition(Vec2::ZERO);
+    m_background->setPosition(winSize * 0.5f);
+    
+    //デバック用ゲージシステム
+    m_debugUnit = Sprite::create("game/girls.png");
+    this->addChild(m_debugUnit);
+    m_debugUnit->setPosition(Vec2(150,100));
+
+    //デバック用ゲージシステム
+    m_debugGauge = Sprite::create("game/gauge.png");
+    this->addChild(m_debugGauge);
+    m_debugGauge->setPosition(Vec2(150,100));
+    m_gauge.setControlNode(m_debugGauge);
+    m_gauge.setType(GaugeController::GAUGE_TYPE_HORIZONTAL_LEFT_ZERO);
+    m_debugGaugeValue = 0.0f;
+    m_gauge.setRate(0.0f);
     
     return true;
 }
+
+//画面の情報更新
+void BattleScreenLayer::update(float delta)
+{
+    m_debugGaugeTime += delta;
+    m_debugGaugeValue = (1.0f / DEBUG_GAUGE_TIME) * m_debugGaugeTime;
+    m_gauge.setRate(m_debugGaugeValue);
+}
+

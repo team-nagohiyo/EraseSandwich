@@ -48,6 +48,8 @@
 		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		571814331EFA0DEA00E5EDDC /* GaugeController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571814311EFA0DEA00E5EDDC /* GaugeController.cpp */; };
+		571814341EFA0DEA00E5EDDC /* GaugeController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571814311EFA0DEA00E5EDDC /* GaugeController.cpp */; };
 		574FEFED1DBC8F18004ED146 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE71DBC8F18004ED146 /* fonts */; };
 		574FEFEE1DBC8F19004ED146 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE81DBC8F18004ED146 /* icon */; };
 		574FEFEF1DBC8F19004ED146 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE91DBC8F18004ED146 /* res */; };
@@ -182,6 +184,8 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		571814311EFA0DEA00E5EDDC /* GaugeController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaugeController.cpp; sourceTree = "<group>"; };
+		571814321EFA0DEA00E5EDDC /* GaugeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugeController.h; sourceTree = "<group>"; };
 		574FEFE71DBC8F18004ED146 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		574FEFE81DBC8F18004ED146 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		574FEFE91DBC8F18004ED146 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				571814301EFA0DEA00E5EDDC /* Common */,
 				574FF0211DBC9639004ED146 /* Manager */,
 				574FF0351DBC968B004ED146 /* Object */,
 				574FF0311DBC966D004ED146 /* puzzle */,
@@ -439,6 +444,15 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		571814301EFA0DEA00E5EDDC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				571814311EFA0DEA00E5EDDC /* GaugeController.cpp */,
+				571814321EFA0DEA00E5EDDC /* GaugeController.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
 		};
 		574FF00E1DBC95C9004ED146 /* Scene */ = {
 			isa = PBXGroup;
@@ -546,6 +560,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 5P49UJYQ85;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -664,6 +683,7 @@
 				5789EF651DBC9A1A001BC972 /* TitleScene.cpp in Sources */,
 				5789EF731DBC9A49001BC972 /* StateController.cpp in Sources */,
 				574FF0061DBC8F54004ED146 /* BattleScreenLayer.cpp in Sources */,
+				571814331EFA0DEA00E5EDDC /* GaugeController.cpp in Sources */,
 				5789EF611DBC9A1A001BC972 /* PowerUpScene.cpp in Sources */,
 				574FF04C1DBC9706004ED146 /* EnemyObject.cpp in Sources */,
 				5789EF631DBC9A1A001BC972 /* RankingScene.cpp in Sources */,
@@ -680,6 +700,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				5789EF641DBC9A1A001BC972 /* RankingScene.cpp in Sources */,
 				5789EF721DBC9A49001BC972 /* EnemyGenerator.cpp in Sources */,
+				571814341EFA0DEA00E5EDDC /* GaugeController.cpp in Sources */,
 				5789EF781DBC9A49001BC972 /* GameLevelPlanner.cpp in Sources */,
 				5789EF7A1DBC9A49001BC972 /* GameMediator.cpp in Sources */,
 				5789EF741DBC9A49001BC972 /* StateController.cpp in Sources */,
@@ -715,6 +736,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 5P49UJYQ85;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -751,6 +773,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 5P49UJYQ85;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

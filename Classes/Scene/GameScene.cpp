@@ -135,6 +135,8 @@ void GameScene::update(float dt)
     //パズルボードの更新
     this->m_TouchControl->updateStateAction(dt);
     
+    this->m_BattleBack->update(dt);
+    
     //デバックラベル
     char moji[30] = "";
     sprintf(moji,"panelState:%d",this->m_TouchControl->getState()->getStateID());

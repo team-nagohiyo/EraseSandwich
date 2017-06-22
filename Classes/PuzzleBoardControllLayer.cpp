@@ -108,6 +108,7 @@ namespace BoardState {
         {
             for(auto panel : rows)
             {
+                //消去済みパネルのインスタンスを生成ように入れ替える
                 if(panel->isErase())
                 {
                     if(panel == m_PuzzleBoard->getLastSelectPanel())
