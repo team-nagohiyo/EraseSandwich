@@ -48,6 +48,7 @@
 		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		574FB3E81E6D856B00265675 /* DebugLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 574FB3E61E6D856B00265675 /* DebugLayer.cpp */; };
 		574FEFED1DBC8F18004ED146 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE71DBC8F18004ED146 /* fonts */; };
 		574FEFEE1DBC8F19004ED146 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE81DBC8F18004ED146 /* icon */; };
 		574FEFEF1DBC8F19004ED146 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 574FEFE91DBC8F18004ED146 /* res */; };
@@ -182,6 +183,8 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		574FB3E61E6D856B00265675 /* DebugLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugLayer.cpp; sourceTree = "<group>"; };
+		574FB3E71E6D856B00265675 /* DebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLayer.h; sourceTree = "<group>"; };
 		574FEFE71DBC8F18004ED146 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		574FEFE81DBC8F18004ED146 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		574FEFE91DBC8F18004ED146 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				574FF00E1DBC95C9004ED146 /* Scene */,
 				574FEFF61DBC8F54004ED146 /* PuzzleBoardControllLayer.cpp */,
 				574FEFF71DBC8F54004ED146 /* PuzzleBoardControllLayer.h */,
+				574FB3E61E6D856B00265675 /* DebugLayer.cpp */,
+				574FB3E71E6D856B00265675 /* DebugLayer.h */,
 				574FEFFC1DBC8F54004ED146 /* RollBackgroundLayer.cpp */,
 				574FEFFD1DBC8F54004ED146 /* BattleScreenLayer.cpp */,
 				574FEFFE1DBC8F54004ED146 /* BattleScreenLayer.h */,
@@ -546,6 +551,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 5P49UJYQ85;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -666,6 +676,7 @@
 				574FF0061DBC8F54004ED146 /* BattleScreenLayer.cpp in Sources */,
 				5789EF611DBC9A1A001BC972 /* PowerUpScene.cpp in Sources */,
 				574FF04C1DBC9706004ED146 /* EnemyObject.cpp in Sources */,
+				574FB3E81E6D856B00265675 /* DebugLayer.cpp in Sources */,
 				5789EF631DBC9A1A001BC972 /* RankingScene.cpp in Sources */,
 				5789EF771DBC9A49001BC972 /* GameLevelPlanner.cpp in Sources */,
 				5789EF5B1DBC9A1A001BC972 /* GameOverScene.cpp in Sources */,
@@ -715,6 +726,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 5P49UJYQ85;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -751,6 +763,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 5P49UJYQ85;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
