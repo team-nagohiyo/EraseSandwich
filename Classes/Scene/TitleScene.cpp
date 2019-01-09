@@ -81,6 +81,9 @@ bool TitleScene::init()
     GameData::getInstance()->loadSettingData();
     GameData::getInstance()->saveSettingData();
     
+    //
+    
+    
     return true;
 }
 /**
