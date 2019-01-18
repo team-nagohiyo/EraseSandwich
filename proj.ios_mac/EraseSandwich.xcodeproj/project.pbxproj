@@ -88,6 +88,8 @@
 		5789EF7A1DBC9A49001BC972 /* GameMediator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5789EF6C1DBC9A49001BC972 /* GameMediator.cpp */; };
 		5789EF7C1DBCA204001BC972 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5789EF7B1DBCA204001BC972 /* str */; };
 		5789EF7D1DBCA204001BC972 /* str in Resources */ = {isa = PBXBuildFile; fileRef = 5789EF7B1DBCA204001BC972 /* str */; };
+		5794661F21EC50DF00FF652A /* TalkEventLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5794661D21EC50DF00FF652A /* TalkEventLayer.cpp */; };
+		5794662021EC50DF00FF652A /* TalkEventLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5794661D21EC50DF00FF652A /* TalkEventLayer.cpp */; };
 		57B26EC41DE18C3B0087E6B7 /* panel in Resources */ = {isa = PBXBuildFile; fileRef = 57B26EC31DE18C3B0087E6B7 /* panel */; };
 		57B26EC51DE18C3B0087E6B7 /* panel in Resources */ = {isa = PBXBuildFile; fileRef = 57B26EC31DE18C3B0087E6B7 /* panel */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -184,9 +186,9 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		571814311EFA0DEA00E5EDDC /* GaugeController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GaugeController.cpp; sourceTree = "<group>"; };
 		571814321EFA0DEA00E5EDDC /* GaugeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugeController.h; sourceTree = "<group>"; };
-		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		574FB3E61E6D856B00265675 /* DebugLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugLayer.cpp; sourceTree = "<group>"; };
 		574FB3E71E6D856B00265675 /* DebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLayer.h; sourceTree = "<group>"; };
 		574FEFE71DBC8F18004ED146 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -233,6 +235,8 @@
 		5789EF6F1DBC9A49001BC972 /* GameLevelPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLevelPlanner.h; path = Manager/GameLevelPlanner.h; sourceTree = "<group>"; };
 		5789EF701DBC9A49001BC972 /* GameMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMediator.h; path = Manager/GameMediator.h; sourceTree = "<group>"; };
 		5789EF7B1DBCA204001BC972 /* str */ = {isa = PBXFileReference; lastKnownFileType = folder; path = str; sourceTree = "<group>"; };
+		5794661D21EC50DF00FF652A /* TalkEventLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TalkEventLayer.cpp; sourceTree = "<group>"; };
+		5794661E21EC50DF00FF652A /* TalkEventLayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TalkEventLayer.hpp; sourceTree = "<group>"; };
 		57B26EC31DE18C3B0087E6B7 /* panel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = panel; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -403,15 +407,6 @@
 			path = ../Classes;
 			sourceTree = "<group>";
 		};
-		571814301EFA0DEA00E5EDDC /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				571814311EFA0DEA00E5EDDC /* GaugeController.cpp */,
-				571814321EFA0DEA00E5EDDC /* GaugeController.h */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +453,17 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		571814301EFA0DEA00E5EDDC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				571814311EFA0DEA00E5EDDC /* GaugeController.cpp */,
+				571814321EFA0DEA00E5EDDC /* GaugeController.h */,
+				5794661D21EC50DF00FF652A /* TalkEventLayer.cpp */,
+				5794661E21EC50DF00FF652A /* TalkEventLayer.hpp */,
+			);
+			path = Common;
+			sourceTree = "<group>";
 		};
 		574FF00E1DBC95C9004ED146 /* Scene */ = {
 			isa = PBXGroup;
@@ -571,7 +577,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich-mobile" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -687,6 +693,7 @@
 				574FF04D1DBC9706004ED146 /* HitObject.cpp in Sources */,
 				5789EF651DBC9A1A001BC972 /* TitleScene.cpp in Sources */,
 				5789EF731DBC9A49001BC972 /* StateController.cpp in Sources */,
+				5794661F21EC50DF00FF652A /* TalkEventLayer.cpp in Sources */,
 				574FF0061DBC8F54004ED146 /* BattleScreenLayer.cpp in Sources */,
 				571814331EFA0DEA00E5EDDC /* GaugeController.cpp in Sources */,
 				5789EF611DBC9A1A001BC972 /* PowerUpScene.cpp in Sources */,
@@ -714,6 +721,7 @@
 				5789EF5E1DBC9A1A001BC972 /* GameScene.cpp in Sources */,
 				5789EF601DBC9A1A001BC972 /* GroupLogoScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				5794662021EC50DF00FF652A /* TalkEventLayer.cpp in Sources */,
 				5789EF761DBC9A49001BC972 /* GameData.cpp in Sources */,
 				5789EF621DBC9A1A001BC972 /* PowerUpScene.cpp in Sources */,
 				5789EF661DBC9A1A001BC972 /* TitleScene.cpp in Sources */,
@@ -938,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich-mobile" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "EraseSandwich" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
